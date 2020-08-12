@@ -9,9 +9,7 @@ import (
 	"time"
 )
 
-type customTime struct {
-    time.Time
-}
+type customTime time.Time
 
 func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
     const shortForm = "2006-01-02T15:04:05"
@@ -22,7 +20,7 @@ func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 		if err != nil {
 			return err
 		}
-		*c = customTime{parse}
+		*c = customTime(parse)
 	}
     
     return nil
