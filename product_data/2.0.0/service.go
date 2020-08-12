@@ -10,7 +10,7 @@ import (
 )
 
 type CustomTime struct {
-    time.Time
+    time.Time `bson:",inline"`
 }
 
 func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
