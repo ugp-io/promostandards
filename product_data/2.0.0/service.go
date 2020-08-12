@@ -9,11 +9,11 @@ import (
 	"time"
 )
 
-type customTime struct {
-    *time.Time `bson:"inline"`
+type CustomTime struct {
+    time.Time `bson:"inline"`
 }
 
-func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
     const shortForm = "2006-01-02T15:04:05"
     var v string
 	d.DecodeElement(&v, &start)
@@ -22,7 +22,7 @@ func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 		if err != nil {
 			return err
 		}
-		*c = customTime{&parse}
+		*c = CustomTime{parse}
 	}
     
     return nil
@@ -2071,7 +2071,7 @@ type Product struct {
 
 	Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
 
-	PriceExpiresDate *customTime `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty" bson:"price_expires_date,omitempty"`
+	PriceExpiresDate *CustomTime `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty" bson:"price_expires_date,omitempty"`
 
 	ProductMarketingPointArray struct {
 		ProductMarketingPoint []*ProductMarketingPoint `xml:"ProductMarketingPoint,omitempty" json:"ProductMarketingPoint,omitempty" bson:"product_marketing_point,omitempty"`
@@ -2149,9 +2149,9 @@ type Product struct {
 				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty" bson:"shipping_package,omitempty"`
 			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty" bson:"shipping_package_array,omitempty"`
 
-			EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
+			EndDate *CustomTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
 
-			EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
+			EffectiveDate *CustomTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
 
 			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty" bson:"is_closeout,omitempty"`
 
@@ -2171,13 +2171,13 @@ type Product struct {
 		} `xml:"ProductPart,omitempty" json:"ProductPart,omitempty" bson:"product_part,omitempty"`
 	} `xml:"ProductPartArray,omitempty" json:"ProductPartArray,omitempty" bson:"product_part_array,omitempty"`
 
-	LastChangeDate *customTime `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty" bson:"last_change_date,omitempty"`
+	LastChangeDate *CustomTime `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty" bson:"last_change_date,omitempty"`
 
-	CreationDate *customTime `xml:"creationDate,omitempty" json:"creationDate,omitempty" bson:"creation_date,omitempty"`
+	CreationDate *CustomTime `xml:"creationDate,omitempty" json:"creationDate,omitempty" bson:"creation_date,omitempty"`
 
-	EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
+	EndDate *CustomTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
 
-	EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
+	EffectiveDate *CustomTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
 
 	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty" bson:"is_caution,omitempty"`
 
