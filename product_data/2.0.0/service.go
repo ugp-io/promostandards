@@ -1765,13 +1765,13 @@ const (
 )
 
 type FobPointArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ FobPointArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ FobPointArray" bson:"-"`
 
 	FobPoint []*FobPoint `xml:"FobPoint,omitempty" json:"FobPoint,omitempty"`
 }
 
 type FobPoint struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ FobPoint"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ FobPoint" bson:"-"`
 
 	FobId *FobId `xml:"fobId,omitempty" json:"fobId,omitempty"`
 
@@ -1787,13 +1787,13 @@ type FobPoint struct {
 type Currency CurrencyCodeType
 
 type ApparelSizeArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ApparelSizeArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ApparelSizeArray" bson:"-"`
 
 	ApparelSize []*ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty"`
 }
 
 type Dimension struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Dimension"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Dimension" bson:"-"`
 
 	DimensionUom *DimensionUom `xml:"dimensionUom,omitempty" json:"dimensionUom,omitempty"`
 
@@ -1809,7 +1809,7 @@ type Dimension struct {
 }
 
 type ProductPackage struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPackage"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPackage" bson:"-"`
 
 	Default_ bool `xml:"default,omitempty" json:"default,omitempty"`
 
@@ -1833,7 +1833,7 @@ type ProductPackage struct {
 }
 
 type ShippingPackage struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ShippingPackage"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ShippingPackage" bson:"-"`
 
 	PackageType *PackageType `xml:"packageType,omitempty" json:"packageType,omitempty"`
 
@@ -1855,7 +1855,7 @@ type ShippingPackage struct {
 }
 
 type Specification struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Specification"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Specification" bson:"-"`
 
 	SpecificationType *SpecificationTypeEnum `xml:"specificationType,omitempty" json:"specificationType,omitempty"`
 
@@ -1865,7 +1865,7 @@ type Specification struct {
 }
 
 type ProductCategory struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductCategory"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductCategory" bson:"-"`
 
 	Category string `xml:"category,omitempty" json:"category,omitempty"`
 
@@ -1873,7 +1873,7 @@ type ProductCategory struct {
 }
 
 type RelatedProduct struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ RelatedProduct"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ RelatedProduct" bson:"-"`
 
 	RelationType *RelationTypeEnum `xml:"relationType,omitempty" json:"relationType,omitempty"`
 
@@ -1883,13 +1883,13 @@ type RelatedProduct struct {
 }
 
 type ProductKeyword struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductKeyword"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductKeyword" bson:"-"`
 
 	Keyword string `xml:"keyword,omitempty" json:"keyword,omitempty"`
 }
 
 type ProductMarketingPoint struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductMarketingPoint"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductMarketingPoint" bson:"-"`
 
 	PointType string `xml:"pointType,omitempty" json:"pointType,omitempty"`
 
@@ -1899,13 +1899,13 @@ type ProductMarketingPoint struct {
 type ChangeTimeStamp time.Time
 
 type ServiceMessageArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ServiceMessageArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ServiceMessageArray" bson:"-"`
 
 	ServiceMessage []*ServiceMessage `xml:"ServiceMessage,omitempty" json:"ServiceMessage,omitempty"`
 }
 
 type ServiceMessage struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ServiceMessage"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ServiceMessage" bson:"-"`
 
 	Code int32 `xml:"code,omitempty" json:"code,omitempty"`
 
@@ -1941,7 +1941,7 @@ type Width float64
 type Quantity float64
 
 type ApparelSize struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ApparelSize"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ApparelSize" bson:"-"`
 
 	ApparelStyle *ApparelStyleEnum `xml:"apparelStyle,omitempty" json:"apparelStyle,omitempty"`
 
@@ -1951,7 +1951,7 @@ type ApparelSize struct {
 }
 
 type SizeApparelArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ SizeApparelArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ SizeApparelArray" bson:"-"`
 
 	SizeApparel []struct {
 		ApparelStyle *ApparelStyleEnum `xml:"apparelStyle,omitempty" json:"apparelStyle,omitempty"`
@@ -1961,21 +1961,21 @@ type SizeApparelArray struct {
 }
 
 type TaxCategoryArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ TaxCategoryArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ TaxCategoryArray" bson:"-"`
 
 	TaxCategory []struct {
 	} `xml:"TaxCategory,omitempty" json:"TaxCategory,omitempty"`
 }
 
 type ImprintColorsArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ImprintColorsArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ImprintColorsArray" bson:"-"`
 
 	Color []struct {
 	} `xml:"Color,omitempty" json:"Color,omitempty"`
 }
 
 type Color struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Color"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ Color" bson:"-"`
 
 	StandardColorName string `xml:"standardColorName,omitempty" json:"standardColorName,omitempty"`
 
@@ -1999,7 +1999,7 @@ type IsHazmat bool
 type QuantityLTM int32
 
 type ProductPriceGroup struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPriceGroup"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPriceGroup" bson:"-"`
 
 	ProductPriceArray struct {
 		ProductPrice []*ProductPrice `xml:"ProductPrice,omitempty" json:"ProductPrice,omitempty"`
@@ -2013,7 +2013,7 @@ type ProductPriceGroup struct {
 }
 
 type ProductPrice struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPrice"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ProductPrice" bson:"-"`
 
 	QuantityMin int32 `xml:"quantityMin,omitempty" json:"quantityMin,omitempty"`
 
@@ -2025,7 +2025,7 @@ type ProductPrice struct {
 }
 
 type LocationDecorationArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ LocationDecorationArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ LocationDecorationArray" bson:"-"`
 
 	LocationDecoration []struct {
 		LocationName string `xml:"locationName,omitempty" json:"locationName,omitempty"`
@@ -2041,7 +2041,7 @@ type LocationDecorationArray struct {
 }
 
 type GetProductRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductRequest" bson:"-"`
 
 	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -2063,141 +2063,141 @@ type GetProductRequest struct {
 }
 
 type Product struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ Product"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ Product" bson:"-"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
-	ProductName *ProductName `xml:"productName,omitempty" json:"productName,omitempty"`
+	ProductName *ProductName `xml:"productName,omitempty" json:"productName,omitempty" bson:"product_name,omitempty"`
 
-	Description []*Description `xml:"description,omitempty" json:"description,omitempty"`
+	Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
 
-	PriceExpiresDate *customTime `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty"`
+	PriceExpiresDate *customTime `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty" bson:"price_expires_date,omitempty"`
 
 	ProductMarketingPointArray struct {
-		ProductMarketingPoint []*ProductMarketingPoint `xml:"ProductMarketingPoint,omitempty" json:"ProductMarketingPoint,omitempty"`
-	} `xml:"ProductMarketingPointArray,omitempty" json:"ProductMarketingPointArray,omitempty"`
+		ProductMarketingPoint []*ProductMarketingPoint `xml:"ProductMarketingPoint,omitempty" json:"ProductMarketingPoint,omitempty" bson:"product_marketing_point,omitempty"`
+	} `xml:"ProductMarketingPointArray,omitempty" json:"ProductMarketingPointArray,omitempty" bson:"product_marketing_point_array,omitempty"`
 
 	ProductKeywordArray struct {
-		ProductKeyword []*ProductKeyword `xml:"ProductKeyword,omitempty" json:"ProductKeyword,omitempty"`
-	} `xml:"ProductKeywordArray,omitempty" json:"ProductKeywordArray,omitempty"`
+		ProductKeyword []*ProductKeyword `xml:"ProductKeyword,omitempty" json:"ProductKeyword,omitempty" bson:"product_keyword,omitempty"`
+	} `xml:"ProductKeywordArray,omitempty" json:"ProductKeywordArray,omitempty" bson:"product_keyword_array,omitempty"`
 
-	ProductBrand *ProductBrand `xml:"productBrand,omitempty" json:"productBrand,omitempty"`
+	ProductBrand *ProductBrand `xml:"productBrand,omitempty" json:"productBrand,omitempty" bson:"product_brand,omitempty"`
 
-	Export bool `xml:"export,omitempty" json:"export,omitempty"`
+	Export bool `xml:"export,omitempty" json:"export,omitempty" bson:"export,omitempty"`
 
 	ProductCategoryArray struct {
-		ProductCategory []*ProductCategory `xml:"ProductCategory,omitempty" json:"ProductCategory,omitempty"`
-	} `xml:"ProductCategoryArray,omitempty" json:"ProductCategoryArray,omitempty"`
+		ProductCategory []*ProductCategory `xml:"ProductCategory,omitempty" json:"ProductCategory,omitempty" bson:"product_category,omitempty"`
+	} `xml:"ProductCategoryArray,omitempty" json:"ProductCategoryArray,omitempty" bson:"product_category_array,omitempty"`
 
 	RelatedProductArray struct {
-		RelatedProduct []*RelatedProduct `xml:"RelatedProduct,omitempty" json:"RelatedProduct,omitempty"`
-	} `xml:"RelatedProductArray,omitempty" json:"RelatedProductArray,omitempty"`
+		RelatedProduct []*RelatedProduct `xml:"RelatedProduct,omitempty" json:"RelatedProduct,omitempty" bson:"related_product,omitempty"`
+	} `xml:"RelatedProductArray,omitempty" json:"RelatedProductArray,omitempty" bson:"related_product_array,omitempty"`
 
-	PrimaryImageUrl *PrimaryImageUrl `xml:"primaryImageUrl,omitempty" json:"primaryImageUrl,omitempty"`
+	PrimaryImageUrl *PrimaryImageUrl `xml:"primaryImageUrl,omitempty" json:"primaryImageUrl,omitempty" bson:"primary_image_url,omitempty"`
 
 	ProductPriceGroupArray struct {
-		ProductPriceGroup []*ProductPriceGroup `xml:"ProductPriceGroup,omitempty" json:"ProductPriceGroup,omitempty"`
-	} `xml:"ProductPriceGroupArray,omitempty" json:"ProductPriceGroupArray,omitempty"`
+		ProductPriceGroup []*ProductPriceGroup `xml:"ProductPriceGroup,omitempty" json:"ProductPriceGroup,omitempty" bson:"product_price_group,omitempty"`
+	} `xml:"ProductPriceGroupArray,omitempty" json:"ProductPriceGroupArray,omitempty" bson:"product_price_group_array,omitempty"`
 
-	ComplianceInfoAvailable *ComplianceInfoAvailable `xml:"complianceInfoAvailable,omitempty" json:"complianceInfoAvailable,omitempty"`
+	ComplianceInfoAvailable *ComplianceInfoAvailable `xml:"complianceInfoAvailable,omitempty" json:"complianceInfoAvailable,omitempty" bson:"compliance_info_available,omitempty"`
 
-	UnspscCommodityCode int32 `xml:"unspscCommodityCode,omitempty" json:"unspscCommodityCode,omitempty"`
+	UnspscCommodityCode int32 `xml:"unspscCommodityCode,omitempty" json:"unspscCommodityCode,omitempty" bson:"unspsc_commodity_code,omitempty"`
 
-	LocationDecorationArray *LocationDecorationArray `xml:"LocationDecorationArray,omitempty" json:"LocationDecorationArray,omitempty"`
+	LocationDecorationArray *LocationDecorationArray `xml:"LocationDecorationArray,omitempty" json:"LocationDecorationArray,omitempty" json:"location_decoration_array,omitempty"`
 
 	ProductPartArray struct {
 		ProductPart []struct {
-			PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+			PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
 
 			PrimaryColor struct {
-				Color *Color `xml:"Color,omitempty" json:"Color,omitempty"`
-			} `xml:"primaryColor,omitempty" json:"primaryColor,omitempty"`
+				Color *Color `xml:"Color,omitempty" json:"Color,omitempty" bson:"color,omitempty"`
+			} `xml:"primaryColor,omitempty" json:"primaryColor,omitempty" bson:"primary_color,omitempty"`
 
-			Description []*Description `xml:"description,omitempty" json:"description,omitempty"`
+			Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
 
-			CountryOfOrigin *CountryOfOrigin `xml:"countryOfOrigin,omitempty" json:"countryOfOrigin,omitempty"`
+			CountryOfOrigin *CountryOfOrigin `xml:"countryOfOrigin,omitempty" json:"countryOfOrigin,omitempty" bson:"country_of_origin,omitempty"`
 
 			ColorArray struct {
-				Color []*Color `xml:"Color,omitempty" json:"Color,omitempty"`
-			} `xml:"ColorArray,omitempty" json:"ColorArray,omitempty"`
+				Color []*Color `xml:"Color,omitempty" json:"Color,omitempty" bson:"color,omitempty"`
+			} `xml:"ColorArray,omitempty" json:"ColorArray,omitempty" bson:"color_array,omitempty"`
 
-			PrimaryMaterial *PrimaryMaterial `xml:"primaryMaterial,omitempty" json:"primaryMaterial,omitempty"`
+			PrimaryMaterial *PrimaryMaterial `xml:"primaryMaterial,omitempty" json:"primaryMaterial,omitempty" json:"primary_material,omitempty"`
 
 			SpecificationArray struct {
-				Specification []*Specification `xml:"Specification,omitempty" json:"Specification,omitempty"`
-			} `xml:"SpecificationArray,omitempty" json:"SpecificationArray,omitempty"`
+				Specification []*Specification `xml:"Specification,omitempty" json:"Specification,omitempty" bson:"specification,omitempty"`
+			} `xml:"SpecificationArray,omitempty" json:"SpecificationArray,omitempty" bson:"specification_array,omitempty"`
 
-			Shape *Shape `xml:"shape,omitempty" json:"shape,omitempty"`
+			Shape *Shape `xml:"shape,omitempty" json:"shape,omitempty" bson:"shape,omitempty"`
 
-			ApparelSize *ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty"`
+			ApparelSize *ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty" bson:"apparel_size,omitempty"`
 
-			Dimension *Dimension `xml:"Dimension,omitempty" json:"Dimension,omitempty"`
+			Dimension *Dimension `xml:"Dimension,omitempty" json:"Dimension,omitempty" bson:"dimension,omitempty"`
 
-			LeadTime int32 `xml:"leadTime,omitempty" json:"leadTime,omitempty"`
+			LeadTime int32 `xml:"leadTime,omitempty" json:"leadTime,omitempty" bson:"lead_time,omitempty"`
 
-			Unspsc *Unspsc `xml:"unspsc,omitempty" json:"unspsc,omitempty"`
+			Unspsc *Unspsc `xml:"unspsc,omitempty" json:"unspsc,omitempty" bson:"unspsc,omitempty"`
 
-			Gtin *Gtin `xml:"gtin,omitempty" json:"gtin,omitempty"`
+			Gtin *Gtin `xml:"gtin,omitempty" json:"gtin,omitempty" bson:"gtin,omitempty"`
 
-			IsRushService *IsRushService `xml:"isRushService,omitempty" json:"isRushService,omitempty"`
+			IsRushService *IsRushService `xml:"isRushService,omitempty" json:"isRushService,omitempty" bson:"is_rush_service,omitempty"`
 
 			ProductPackagingArray struct {
-				ProductPackage []*ProductPackage `xml:"ProductPackage,omitempty" json:"ProductPackage,omitempty"`
-			} `xml:"ProductPackagingArray,omitempty" json:"ProductPackagingArray,omitempty"`
+				ProductPackage []*ProductPackage `xml:"ProductPackage,omitempty" json:"ProductPackage,omitempty" bson:"product_package,omitempty"`
+			} `xml:"ProductPackagingArray,omitempty" json:"ProductPackagingArray,omitempty" bson:"product_packaging_array,omitempty"`
 
 			ShippingPackageArray struct {
-				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty"`
-			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty"`
+				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty" bson:"shipping_package,omitempty"`
+			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty" bson:"shipping_package_array,omitempty"`
 
-			EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty"`
+			EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
 
-			EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+			EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
 
-			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty"`
+			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty" bson:"is_closeout,omitempty"`
 
-			IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty"`
+			IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty" bson:"is_caution,omitempty"`
 
-			CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty"`
+			CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty" bson:"caution_comment,omitempty"`
 
-			NmfcCode *NmfcCode `xml:"nmfcCode,omitempty" json:"nmfcCode,omitempty"`
+			NmfcCode *NmfcCode `xml:"nmfcCode,omitempty" json:"nmfcCode,omitempty" bson:"nmfc_code,omitempty"`
 
-			NmfcDescription *NmfcDescription `xml:"nmfcDescription,omitempty" json:"nmfcDescription,omitempty"`
+			NmfcDescription *NmfcDescription `xml:"nmfcDescription,omitempty" json:"nmfcDescription,omitempty" bson:"nmfc_description,omitempty"`
 
-			NmfcNumber *NmfcNumber `xml:"nmfcNumber,omitempty" json:"nmfcNumber,omitempty"`
+			NmfcNumber *NmfcNumber `xml:"nmfcNumber,omitempty" json:"nmfcNumber,omitempty" bson:"nmfc_number,omitempty"`
 
-			IsOnDemand *IsOnDemand `xml:"isOnDemand,omitempty" json:"isOnDemand,omitempty"`
+			IsOnDemand *IsOnDemand `xml:"isOnDemand,omitempty" json:"isOnDemand,omitempty" bson:"is_on_demand,omitempty"`
 
-			IsHazmat *IsHazmat `xml:"isHazmat,omitempty" json:"isHazmat,omitempty"`
-		} `xml:"ProductPart,omitempty" json:"ProductPart,omitempty"`
-	} `xml:"ProductPartArray,omitempty" json:"ProductPartArray,omitempty"`
+			IsHazmat *IsHazmat `xml:"isHazmat,omitempty" json:"isHazmat,omitempty" bson:"is_hazmat,omitempty"`
+		} `xml:"ProductPart,omitempty" json:"ProductPart,omitempty" bson:"product_part,omitempty"`
+	} `xml:"ProductPartArray,omitempty" json:"ProductPartArray,omitempty" bson:"product_part_array,omitempty"`
 
-	LastChangeDate *customTime `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty"`
+	LastChangeDate *customTime `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty" bson:"last_change_date,omitempty"`
 
-	CreationDate *customTime `xml:"creationDate,omitempty" json:"creationDate,omitempty"`
+	CreationDate *customTime `xml:"creationDate,omitempty" json:"creationDate,omitempty" bson:"creation_date,omitempty"`
 
-	EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty"`
+	EndDate *customTime `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
 
-	EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+	EffectiveDate *customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
 
-	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty"`
+	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty" bson:"is_caution,omitempty"`
 
-	CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty"`
+	CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty" bson:"caution_comment,omitempty"`
 
-	IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty"`
+	IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty" bson:"is_closeout,omitempty"`
 
-	LineName *LineName `xml:"lineName,omitempty" json:"lineName,omitempty"`
+	LineName *LineName `xml:"lineName,omitempty" json:"lineName,omitempty" bson:"line_name,omitempty"`
 
-	DefaultSetupCharge *DefaultSetupCharge `xml:"defaultSetupCharge,omitempty" json:"defaultSetupCharge,omitempty"`
+	DefaultSetupCharge *DefaultSetupCharge `xml:"defaultSetupCharge,omitempty" json:"defaultSetupCharge,omitempty" bson:"default_setup_charge,omitempty"`
 
-	DefaultRunCharge *DefaultRunCharge `xml:"defaultRunCharge,omitempty" json:"defaultRunCharge,omitempty"`
+	DefaultRunCharge *DefaultRunCharge `xml:"defaultRunCharge,omitempty" json:"defaultRunCharge,omitempty" bson:"default_run_charge,omitempty"`
 
-	ImprintSize *ImprintSize `xml:"imprintSize,omitempty" json:"imprintSize,omitempty"`
+	ImprintSize *ImprintSize `xml:"imprintSize,omitempty" json:"imprintSize,omitempty" bson:"imprint_size,omitempty"`
 
-	FobPointArray *FobPointArray `xml:"FobPointArray,omitempty" json:"FobPointArray,omitempty"`
+	FobPointArray *FobPointArray `xml:"FobPointArray,omitempty" json:"FobPointArray,omitempty" bson:"fob_point_array,omitempty"`
 }
 
 type GetProductResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductResponse" bson:"-"`
 
 	Product *Product `xml:"Product,omitempty" json:"Product,omitempty"`
 
@@ -2205,7 +2205,7 @@ type GetProductResponse struct {
 }
 
 type GetProductDateModifiedRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductDateModifiedRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductDateModifiedRequest" bson:"-"`
 
 	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -2225,7 +2225,7 @@ type ProductDateModified struct {
 }
 
 type GetProductDateModifiedResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductDateModifiedResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductDateModifiedResponse" bson:"-"`
 
 	ProductDateModifiedArray struct {
 		ProductDateModified []*ProductDateModified `xml:"ProductDateModified,omitempty" json:"ProductDateModified,omitempty"`
@@ -2235,7 +2235,7 @@ type GetProductDateModifiedResponse struct {
 }
 
 type GetProductCloseOutRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductCloseOutRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductCloseOutRequest" bson:"-"`
 
 	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -2245,7 +2245,7 @@ type GetProductCloseOutRequest struct {
 }
 
 type ProductCloseOut struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ ProductCloseOut"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ ProductCloseOut" bson:"-"`
 
 	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
 
@@ -2253,7 +2253,7 @@ type ProductCloseOut struct {
 }
 
 type GetProductCloseOutResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductCloseOutResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductCloseOutResponse" bson:"-"`
 
 	ProductCloseOutArray struct {
 		ProductCloseOut []*ProductCloseOut `xml:"ProductCloseOut,omitempty" json:"ProductCloseOut,omitempty"`
@@ -2263,7 +2263,7 @@ type GetProductCloseOutResponse struct {
 }
 
 type GetProductSellableRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableRequest" bson:"-"`
 
 	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -2285,7 +2285,7 @@ type GetProductSellableRequest struct {
 }
 
 type GetProductSellableResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableResponse" bson:"-"`
 
 	ProductSellableArray struct {
 		ProductSellable []struct {
