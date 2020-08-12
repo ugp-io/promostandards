@@ -10,7 +10,7 @@ import (
 )
 
 type customTime struct {
-    time.Time
+    time.Time `bson:"inline"`
 }
 
 func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
@@ -1981,7 +1981,7 @@ type Color struct {
 
 	Hex string `xml:"hex,omitempty" json:"hex,omitempty" bson:"hex,omitempty"`
 
-	ApproximatePms string `xml:"approximatePms,omitempty" json:"approximatePms,omitempty" bosn:"approximate_pms,omitempty"`
+	ApproximatePms string `xml:"approximatePms,omitempty" json:"approximatePms,omitempty" bson:"approximate_pms,omitempty"`
 
 	ColorName string `xml:"colorName,omitempty" json:"colorName,omitempty" bson:"color_name,omitempty"`
 }
@@ -2103,7 +2103,7 @@ type Product struct {
 
 	UnspscCommodityCode int32 `xml:"unspscCommodityCode,omitempty" json:"unspscCommodityCode,omitempty" bson:"unspsc_commodity_code,omitempty"`
 
-	LocationDecorationArray *LocationDecorationArray `xml:"LocationDecorationArray,omitempty" json:"LocationDecorationArray,omitempty" json:"location_decoration_array,omitempty"`
+	LocationDecorationArray *LocationDecorationArray `xml:"LocationDecorationArray,omitempty" json:"LocationDecorationArray,omitempty" bson:"location_decoration_array,omitempty"`
 
 	ProductPartArray struct {
 		ProductPart []struct {
