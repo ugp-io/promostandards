@@ -9,6 +9,22 @@ import (
 	"time"
 )
 
+type customTime struct {
+    time.Time
+}
+
+func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+    const shortForm = "2006-01-02T15:04:05"
+    var v string
+    d.DecodeElement(&v, &start)
+    parse, err := time.Parse(shortForm, v)
+    if err != nil {
+        return err
+    }
+    *c = customTime{parse}
+    return nil
+}
+
 // against "unused imports"
 var _ time.Time
 var _ xml.Name
@@ -2052,7 +2068,7 @@ type Product struct {
 
 	Description []*Description `xml:"description,omitempty" json:"description,omitempty"`
 
-	PriceExpiresDate time.Time `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty"`
+	PriceExpiresDate customTime `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty"`
 
 	ProductMarketingPointArray struct {
 		ProductMarketingPoint []*ProductMarketingPoint `xml:"ProductMarketingPoint,omitempty" json:"ProductMarketingPoint,omitempty"`
@@ -2130,9 +2146,9 @@ type Product struct {
 				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty"`
 			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty"`
 
-			EndDate time.Time `xml:"endDate,omitempty" json:"endDate,omitempty"`
+			EndDate customTime `xml:"endDate,omitempty" json:"endDate,omitempty"`
 
-			EffectiveDate time.Time `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+			EffectiveDate customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
 
 			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty"`
 
@@ -2152,13 +2168,13 @@ type Product struct {
 		} `xml:"ProductPart,omitempty" json:"ProductPart,omitempty"`
 	} `xml:"ProductPartArray,omitempty" json:"ProductPartArray,omitempty"`
 
-	LastChangeDate time.Time `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty"`
+	LastChangeDate customTime `xml:"lastChangeDate,omitempty" json:"lastChangeDate,omitempty"`
 
-	CreationDate time.Time `xml:"creationDate,omitempty" json:"creationDate,omitempty"`
+	CreationDate customTime `xml:"creationDate,omitempty" json:"creationDate,omitempty"`
 
-	EndDate time.Time `xml:"endDate,omitempty" json:"endDate,omitempty"`
+	EndDate customTime `xml:"endDate,omitempty" json:"endDate,omitempty"`
 
-	EffectiveDate time.Time `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+	EffectiveDate customTime `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
 
 	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty"`
 
