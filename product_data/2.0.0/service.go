@@ -1895,11 +1895,11 @@ type ServiceMessage struct {
 	Severity *SeverityType `xml:"severity,omitempty" json:"severity,omitempty"`
 }
 
-type PriceExpiresDate time.Time
+// type PriceExpiresDate time.Time
 
-type EndDate time.Time
+// type EndDate time.Time
 
-type EffectiveDate time.Time
+// type EffectiveDate time.Time
 
 type IsCaution bool
 
@@ -2052,7 +2052,7 @@ type Product struct {
 
 	Description []*Description `xml:"description,omitempty" json:"description,omitempty"`
 
-	PriceExpiresDate *PriceExpiresDate `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty"`
+	PriceExpiresDate time.Time `xml:"priceExpiresDate,omitempty" json:"priceExpiresDate,omitempty"`
 
 	ProductMarketingPointArray struct {
 		ProductMarketingPoint []*ProductMarketingPoint `xml:"ProductMarketingPoint,omitempty" json:"ProductMarketingPoint,omitempty"`
@@ -2130,9 +2130,9 @@ type Product struct {
 				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty"`
 			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty"`
 
-			EndDate *EndDate `xml:"endDate,omitempty" json:"endDate,omitempty"`
+			EndDate time.Time `xml:"endDate,omitempty" json:"endDate,omitempty"`
 
-			EffectiveDate *EffectiveDate `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+			EffectiveDate time.Time `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
 
 			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty"`
 
@@ -2156,9 +2156,9 @@ type Product struct {
 
 	CreationDate time.Time `xml:"creationDate,omitempty" json:"creationDate,omitempty"`
 
-	EndDate *EndDate `xml:"endDate,omitempty" json:"endDate,omitempty"`
+	EndDate time.Time `xml:"endDate,omitempty" json:"endDate,omitempty"`
 
-	EffectiveDate *EffectiveDate `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
+	EffectiveDate time.Time `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty"`
 
 	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty"`
 
