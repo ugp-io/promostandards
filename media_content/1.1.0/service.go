@@ -171,12 +171,14 @@ type Location struct {
 	LocationName string `xml:"locationName,omitempty" json:"locationName,omitempty" bson:"location_name,omitempty"`
 }
 
+type MediaContentArray struct {
+	MediaContent []*MediaContent `xml:"MediaContent,omitempty" json:"MediaContent,omitempty" bson:"media_content,omitempty"`
+}
+
 type GetMediaContentResponse struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentResponse"  bson:"-"`
 
-	MediaContentArray struct {
-		MediaContent []*MediaContent `xml:"MediaContent,omitempty" json:"MediaContent,omitempty" bson:"media_content,omitempty"`
-	} `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
+	MediaContentArray *MediaContentArray `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
 
 	ErrorMessage *ErrorMessage `xml:"errorMessage,omitempty" json:"errorMessage,omitempty"`
 }
