@@ -608,170 +608,170 @@ const (
 )
 
 type ServiceMessageArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ ServiceMessageArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ ServiceMessageArray" bson:"-"`
 
-	ServiceMessage []*ServiceMessage `xml:"ServiceMessage,omitempty" json:"ServiceMessage,omitempty"`
+	ServiceMessage []*ServiceMessage `xml:"ServiceMessage,omitempty" json:"ServiceMessage,omitempty" bson:"service_message,omitempty"`
 }
 
 type ServiceMessage struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ ServiceMessage"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ ServiceMessage" bson:"-"`
 
 	// Response for any message requiring notification to requestor
 	//
-	Code int32 `xml:"code,omitempty" json:"code,omitempty"`
+	Code int32 `xml:"code,omitempty" json:"code,omitempty" bson:"code,omitempty"`
 
 	//
 	// Response for any message requiring notification to requestor
 	//
 
-	Description string `xml:"description,omitempty" json:"description,omitempty"`
+	Description string `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
 
 	//
 	// The severity of the message. Values are enumerated: {Error, Information, Warning}
 	//
 
-	Severity *SeverityType `xml:"severity,omitempty" json:"severity,omitempty"`
+	Severity *SeverityType `xml:"severity,omitempty" json:"severity,omitempty" bson:"severity,omitempty"`
 }
 
 type Filter struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Filter"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Filter" bson:"-"`
 
-	PartIdArray *PartIdArray `xml:"partIdArray,omitempty" json:"partIdArray,omitempty"`
+	PartIdArray *PartIdArray `xml:"partIdArray,omitempty" json:"partIdArray,omitempty" bson:"part_id_array,omitempty"`
 
-	LabelSizeArray *LabelSizeArray `xml:"LabelSizeArray,omitempty" json:"LabelSizeArray,omitempty"`
+	LabelSizeArray *LabelSizeArray `xml:"LabelSizeArray,omitempty" json:"LabelSizeArray,omitempty" bson:"label_size_array,omitempty"`
 
-	PartColorArray *PartColorArray `xml:"PartColorArray,omitempty" json:"PartColorArray,omitempty"`
+	PartColorArray *PartColorArray `xml:"PartColorArray,omitempty" json:"PartColorArray,omitempty" bson:"part_color_array,omitempty"`
 }
 
 type FutureAvailabilityArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ FutureAvailabilityArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ FutureAvailabilityArray" bson:"-"`
 
-	FutureAvailability []*FutureAvailability `xml:"FutureAvailability,omitempty" json:"FutureAvailability,omitempty"`
+	FutureAvailability []*FutureAvailability `xml:"FutureAvailability,omitempty" json:"FutureAvailability,omitempty" bson:"future_availability,omitempty"`
 }
 
 type AvailableOn time.Time
 
 type FutureAvailability struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ FutureAvailability"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ FutureAvailability" bson:"-"`
 
-	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
+	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty" bson:"quantity,omitempty"`
 
-	AvailableOn *AvailableOn `xml:"availableOn,omitempty" json:"availableOn,omitempty"`
+	AvailableOn *AvailableOn `xml:"availableOn,omitempty" json:"availableOn,omitempty" bson:"available_on,omitempty"`
 }
 
 type Inventory struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Inventory"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Inventory" bson:"-"`
 
-	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
-	PartInventoryArray *PartInventoryArray `xml:"PartInventoryArray,omitempty" json:"PartInventoryArray,omitempty"`
+	PartInventoryArray *PartInventoryArray `xml:"PartInventoryArray,omitempty" json:"PartInventoryArray,omitempty" bson:"part_inventory_array,omitempty"`
 }
 
 type LabelSizeArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ LabelSizeArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ LabelSizeArray" bson:"-"`
 
-	LabelSize []*LabelSize `xml:"labelSize,omitempty" json:"labelSize,omitempty"`
+	LabelSize []*LabelSize `xml:"labelSize,omitempty" json:"labelSize,omitempty" bson:"label_size,omitempty"`
 }
 
 type PartColorArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ PartColorArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ PartColorArray" bson:"-"`
 
-	PartColor []*PartColor `xml:"partColor,omitempty" json:"partColor,omitempty"`
+	PartColor []*PartColor `xml:"partColor,omitempty" json:"partColor,omitempty" bson:"part_color,omitempty"`
 }
 
 type PartInventoryArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ PartInventoryArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ PartInventoryArray" bson:"-"`
 
 	PartInventory []struct {
-		PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
+		PartId *string `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
 
-		MainPart *MainPart `xml:"mainPart,omitempty" json:"mainPart,omitempty"`
+		MainPart *MainPart `xml:"mainPart,omitempty" json:"mainPart,omitempty" bson:"main_part,omitempty"`
 
-		PartColor *PartColor `xml:"partColor,omitempty" json:"partColor,omitempty"`
+		PartColor *PartColor `xml:"partColor,omitempty" json:"partColor,omitempty" bson:"part_color,omitempty"`
 
-		LabelSize *LabelSize `xml:"labelSize,omitempty" json:"labelSize,omitempty"`
+		LabelSize *LabelSize `xml:"labelSize,omitempty" json:"labelSize,omitempty" bson:"label_size,omitempty"`
 
-		PartDescription *PartDescription `xml:"partDescription,omitempty" json:"partDescription,omitempty"`
+		PartDescription *PartDescription `xml:"partDescription,omitempty" json:"partDescription,omitempty" bson:"part_description,omitempty"`
 
-		QuantityAvailable *QuantityAvailable `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty"`
+		QuantityAvailable *QuantityAvailable `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
 
-		ManufacturedItem *ManufacturedItem `xml:"manufacturedItem,omitempty" json:"manufacturedItem,omitempty"`
+		ManufacturedItem *ManufacturedItem `xml:"manufacturedItem,omitempty" json:"manufacturedItem,omitempty" bson:"manufactured_item,omitempty"`
 
-		BuyToOrder *BuyToOrder `xml:"buyToOrder,omitempty" json:"buyToOrder,omitempty"`
+		BuyToOrder *BuyToOrder `xml:"buyToOrder,omitempty" json:"buyToOrder,omitempty" bson:"buy_to_order,omitempty"`
 
-		ReplenishmentLeadTime *ReplenishmentLeadTime `xml:"replenishmentLeadTime,omitempty" json:"replenishmentLeadTime,omitempty"`
+		ReplenishmentLeadTime *ReplenishmentLeadTime `xml:"replenishmentLeadTime,omitempty" json:"replenishmentLeadTime,omitempty" bson:"replenishment_lead_time,omitempty"`
 
-		AttributeSelection *AttributeSelection `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty"`
+		AttributeSelection *AttributeSelection `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty" bson:"attribute_selection,omitempty"`
 
-		InventoryLocationArray *InventoryLocationArray `xml:"InventoryLocationArray,omitempty" json:"InventoryLocationArray,omitempty"`
+		InventoryLocationArray *InventoryLocationArray `xml:"InventoryLocationArray,omitempty" json:"InventoryLocationArray,omitempty" bson:"inventory_location_array,omitempty"`
 
-		LastModified *LastModified `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
-	} `xml:"PartInventory,omitempty" json:"PartInventory,omitempty"`
+		LastModified *LastModified `xml:"lastModified,omitempty" json:"lastModified,omitempty" bson:"last_modified,omitempty"`
+	} `xml:"PartInventory,omitempty" json:"PartInventory,omitempty" bson:"part_inventory,omitempty"`
 }
 
 type QuantityAvailable struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ quantityAvailable"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ quantityAvailable" bson:"-"`
 
-	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
+	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty" bson:"quantity,omitempty"`
 }
 
 type Quantity struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Quantity"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ Quantity" bson:"-"`
 
 	//
 	// The unit of measure; values are enumerated.
 	//
 
-	Uom *QuantityUomType `xml:"uom,omitempty" json:"uom,omitempty"`
+	Uom *QuantityUomType `xml:"uom,omitempty" json:"uom,omitempty" bson:"uom,omitempty"`
 
 	//
 	// The quantity value
 	//
-	Value float64 `xml:"value,omitempty" json:"value,omitempty"`
+	Value float64 `xml:"value,omitempty" json:"value,omitempty" bson:"value,omitempty"`
 }
 
 type PartIdArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ partIdArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ partIdArray" bson:"-"`
 
-	PartId []*string `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId []*string `xml:"partId,omitempty" json:"partId,omitempty" bson:"partId,omitempty"`
 }
 
 type LastModified time.Time
 
 type InventoryLocationArray struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ InventoryLocationArray"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ InventoryLocationArray" bson:"-"`
 
-	InventoryLocation []*InventoryLocation `xml:"InventoryLocation,omitempty" json:"InventoryLocation,omitempty"`
+	InventoryLocation []*InventoryLocation `xml:"InventoryLocation,omitempty" json:"InventoryLocation,omitempty" bson:"inventory_location,omitempty"`
 }
 
 type InventoryLocationQuantity struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ inventoryLocationQuantity"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ inventoryLocationQuantity" bson:"-"`
 
-	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
+	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty" bson:"quantity,omitempty"`
 }
 
 type InventoryLocation struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ InventoryLocation"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ InventoryLocation" bson:"-"`
 
-	InventoryLocationId *InventoryLocationId `xml:"inventoryLocationId,omitempty" json:"inventoryLocationId,omitempty"`
+	InventoryLocationId *InventoryLocationId `xml:"inventoryLocationId,omitempty" json:"inventoryLocationId,omitempty" bson:"inventory_location_id,omitempty"`
 
-	InventoryLocationName *InventoryLocationName `xml:"inventoryLocationName,omitempty" json:"inventoryLocationName,omitempty"`
+	InventoryLocationName *InventoryLocationName `xml:"inventoryLocationName,omitempty" json:"inventoryLocationName,omitempty" bson:"inventory_location_name,omitempty"`
 
 	// The postal code
 
-	PostalCode string `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
+	PostalCode string `xml:"postalCode,omitempty" json:"postalCode,omitempty" bson:"postal_code,omitempty"`
 
 	// The country
 
-	Country *ISO3166CountyCode `xml:"country,omitempty" json:"country,omitempty"`
+	Country *ISO3166CountyCode `xml:"country,omitempty" json:"country,omitempty" bson:"country,omitempty"`
 
-	InventoryLocationQuantity *InventoryLocationQuantity `xml:"inventoryLocationQuantity,omitempty" json:"inventoryLocationQuantity,omitempty"`
+	InventoryLocationQuantity *InventoryLocationQuantity `xml:"inventoryLocationQuantity,omitempty" json:"inventoryLocationQuantity,omitempty" bson:"inventory_location_quantity,omitempty"`
 
-	FutureAvailabilityArray *FutureAvailabilityArray `xml:"FutureAvailabilityArray,omitempty" json:"FutureAvailabilityArray,omitempty"`
+	FutureAvailabilityArray *FutureAvailabilityArray `xml:"FutureAvailabilityArray,omitempty" json:"FutureAvailabilityArray,omitempty" bson:"future_availability_array,omitempty"`
 }
 
 type GetFilterValuesRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetFilterValuesRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetFilterValuesRequest" bson:"-"`
 
 	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -783,19 +783,19 @@ type GetFilterValuesRequest struct {
 }
 
 type GetFilterValuesResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetFilterValuesResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetFilterValuesResponse" bson:"-"`
 
 	FilterValues struct {
-		ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
+		ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
-		Filter *Filter `xml:"Filter,omitempty" json:"Filter,omitempty"`
-	} `xml:"FilterValues,omitempty" json:"FilterValues,omitempty"`
+		Filter *Filter `xml:"Filter,omitempty" json:"Filter,omitempty" bson:"filter,omitempty"`
+	} `xml:"FilterValues,omitempty" json:"FilterValues,omitempty" bson:"filter_values,omitempty"`
 
-	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty"`
+	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty" bson:"service_message_array,omitempty"`
 }
 
 type GetInventoryLevelsRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetInventoryLevelsRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetInventoryLevelsRequest" bson:"-"`
 
 	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -809,11 +809,11 @@ type GetInventoryLevelsRequest struct {
 }
 
 type GetInventoryLevelsResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetInventoryLevelsResponse"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetInventoryLevelsResponse" bson:"-"`
 
-	Inventory *Inventory `xml:"Inventory,omitempty" json:"Inventory,omitempty"`
+	Inventory *Inventory `xml:"Inventory,omitempty" json:"Inventory,omitempty" bson:"inventory,omitempty"`
 
-	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty"`
+	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty" bson:"service_message_array,omitempty"`
 }
 
 type InventoryService interface {
