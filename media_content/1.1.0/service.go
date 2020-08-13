@@ -65,19 +65,19 @@ type MediaType MediaTypeType
 type GetMediaContentRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	CultureName *CultureName `xml:"cultureName,omitempty" json:"cultureName,omitempty"`
+	CultureName *string `xml:"cultureName,omitempty" json:"cultureName,omitempty"`
 
-	MediaType *MediaType `xml:"mediaType,omitempty" json:"mediaType,omitempty"`
+	MediaType *string `xml:"mediaType,omitempty" json:"mediaType,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 	// The part ID associated to the product ID.
 	//
@@ -87,15 +87,15 @@ type GetMediaContentRequest struct {
 type MediaContent struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ MediaContent"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 	// The URL of the media location.  Any valid URL can be returned including prefixes like http and ftp.
 
 	Url string `xml:"url,omitempty" json:"url,omitempty"`
 
-	MediaType *MediaType `xml:"mediaType,omitempty" json:"mediaType,omitempty"`
+	MediaType *string `xml:"mediaType,omitempty" json:"mediaType,omitempty"`
 
 	ClassTypeArray struct {
 		ClassType []*ClassType `xml:"ClassType,omitempty" json:"ClassType,omitempty"`
@@ -184,13 +184,13 @@ type GetMediaContentResponse struct {
 type GetMediaDateModifiedRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaDateModifiedRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	CultureName *CultureName `xml:"cultureName,omitempty" json:"cultureName,omitempty"`
+	CultureName *string `xml:"cultureName,omitempty" json:"cultureName,omitempty"`
 
 	ChangeTimeStamp *ChangeTimeStamp `xml:"changeTimeStamp,omitempty" json:"changeTimeStamp,omitempty"`
 }
@@ -198,9 +198,9 @@ type GetMediaDateModifiedRequest struct {
 type MediaDateModified struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ MediaDateModified"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 }
 
 type GetMediaDateModifiedResponse struct {

@@ -1877,9 +1877,9 @@ type RelatedProduct struct {
 
 	RelationType *RelationTypeEnum `xml:"relationType,omitempty" json:"relationType,omitempty" bson:"relation_type,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
 }
 
 type ProductKeyword struct {
@@ -2043,19 +2043,19 @@ type LocationDecorationArray struct {
 type GetProductRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductRequest" bson:"-"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 	ColorName *ColorName `xml:"colorName,omitempty" json:"colorName,omitempty"`
 
@@ -2065,7 +2065,7 @@ type GetProductRequest struct {
 type Product struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ Product" bson:"-"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
 	ProductName *ProductName `xml:"productName,omitempty" json:"productName,omitempty" bson:"product_name,omitempty"`
 
@@ -2107,7 +2107,7 @@ type Product struct {
 
 	ProductPartArray struct {
 		ProductPart []struct {
-			PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
+			PartId *string `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
 
 			PrimaryColor struct {
 				Color *Color `xml:"Color,omitempty" json:"Color,omitempty" bson:"color,omitempty"`
@@ -2207,11 +2207,11 @@ type GetProductResponse struct {
 type GetProductDateModifiedRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductDateModifiedRequest" bson:"-"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
 	ChangeTimeStamp *ChangeTimeStamp `xml:"changeTimeStamp,omitempty" json:"changeTimeStamp,omitempty"`
 }
@@ -2219,9 +2219,9 @@ type GetProductDateModifiedRequest struct {
 type ProductDateModified struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ ProductDateModified"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 }
 
 type GetProductDateModifiedResponse struct {
@@ -2237,19 +2237,19 @@ type GetProductDateModifiedResponse struct {
 type GetProductCloseOutRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductCloseOutRequest" bson:"-"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 }
 
 type ProductCloseOut struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ ProductCloseOut" bson:"-"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 }
 
 type GetProductCloseOutResponse struct {
@@ -2265,19 +2265,19 @@ type GetProductCloseOutResponse struct {
 type GetProductSellableRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableRequest" bson:"-"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 	LineName *LineName `xml:"lineName,omitempty" json:"lineName,omitempty"`
 
@@ -2289,9 +2289,9 @@ type GetProductSellableResponse struct {
 
 	ProductSellableArray struct {
 		ProductSellable []struct {
-			ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+			ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-			PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+			PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 			CulturePoint *CulturePoint `xml:"culturePoint,omitempty" json:"culturePoint,omitempty"`
 		} `xml:"ProductSellable,omitempty" json:"ProductSellable,omitempty"`
