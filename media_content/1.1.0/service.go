@@ -95,10 +95,10 @@ type MediaContent struct {
 
 	Url string `xml:"url,omitempty" json:"url,omitempty" bson:"url,omitempty"`
 
-	MediaType *string `xml:"mediaType,omitempty" json:"mediaType,omitempty" bson:"media_yype,omitempty"`
+	MediaType *string `xml:"mediaType,omitempty" json:"mediaType,omitempty" bson:"media_type,omitempty"`
 
 	ClassTypeArray struct {
-		ClassType []*ClassType `xml:"ClassType,omitempty" json:"ClassType,omitempty" bson:"class_yype,omitempty"`
+		ClassType []*ClassType `xml:"ClassType,omitempty" json:"ClassType,omitempty" bson:"class_type,omitempty"`
 	} `xml:"ClassTypeArray,omitempty" json:"ClassTypeArray,omitempty" bson:"class_type_array,omitempty"`
 
 	// The file size
