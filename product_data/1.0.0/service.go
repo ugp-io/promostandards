@@ -739,9 +739,9 @@ type GetProductRequest struct {
 
 	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
 	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
