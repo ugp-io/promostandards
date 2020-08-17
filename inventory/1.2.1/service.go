@@ -22,7 +22,7 @@ type AnyURI string
 type NCName string
 
 type GetFilterValuesRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ GetFilterValuesRequest"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ GetFilterValuesRequest" bson:"-"`
 
 	//
 	// The Standard Version of the Web Service being referenced
@@ -56,25 +56,25 @@ type GetFilterValuesRequest struct {
 }
 
 type GetFilterValuesReply struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ GetFilterValuesReply"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ GetFilterValuesReply" bson:"-"`
 
 	//
 	// The associated product
 	//
 
-	ProductID string `xml:"productID,omitempty" json:"productID,omitempty"`
+	ProductID string `xml:"productID,omitempty" json:"productID,omitempty" bson:"product_id,omitempty"`
 
 	FilterColorArray struct {
-		FilterColor string `xml:"filterColor,omitempty" json:"filterColor,omitempty"`
-	} `xml:"FilterColorArray,omitempty" json:"FilterColorArray,omitempty"`
+		FilterColor string `xml:"filterColor,omitempty" json:"filterColor,omitempty" bson:"filter_color,omitempty"`
+	} `xml:"FilterColorArray,omitempty" json:"FilterColorArray,omitempty" bson:"filter_color_array,omitempty"`
 
 	FilterSizeArray struct {
-		FilterSize string `xml:"filterSize,omitempty" json:"filterSize,omitempty"`
-	} `xml:"FilterSizeArray,omitempty" json:"FilterSizeArray,omitempty"`
+		FilterSize string `xml:"filterSize,omitempty" json:"filterSize,omitempty" bson:"filter_size,omitempty"`
+	} `xml:"FilterSizeArray,omitempty" json:"FilterSizeArray,omitempty" bson:"filter_size_array,omitempty"`
 
 	FilterSelectionArray struct {
-		FilterSelection string `xml:"filterSelection,omitempty" json:"filterSelection,omitempty"`
-	} `xml:"FilterSelectionArray,omitempty" json:"FilterSelectionArray,omitempty"`
+		FilterSelection string `xml:"filterSelection,omitempty" json:"filterSelection,omitempty" bson:"filter_selection,omitempty"`
+	} `xml:"FilterSelectionArray,omitempty" json:"FilterSelectionArray,omitempty" bson:"filter_selection_array,omitempty"`
 
 	//
 	// Response for any error requiring notification to requestor
@@ -84,7 +84,7 @@ type GetFilterValuesReply struct {
 }
 
 type Request struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ Request"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ Request" bson:"-"`
 
 	//
 	// The Standard Version of the Web Service being referenced
@@ -130,13 +130,13 @@ type Request struct {
 }
 
 type Reply struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ Reply"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ Reply" bson:"-"`
 
 	//
 	// The associated product
 	//
 
-	ProductID string `xml:"productID,omitempty" json:"productID,omitempty"`
+	ProductID string `xml:"productID,omitempty" json:"productID,omitempty" bson:"product_id,omitempty"`
 
 	ProductVariationInventoryArray struct {
 		ProductVariationInventory []struct {
@@ -145,78 +145,78 @@ type Reply struct {
 			// The associated part
 			//
 
-			PartID string `xml:"partID,omitempty" json:"partID,omitempty"`
+			PartID string `xml:"partID,omitempty" json:"partID,omitempty" bson:"part_id,omitempty"`
 
 			//
 			// Part’s description
 			//
 
-			PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty"`
+			PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty" bson:"part_description,omitempty"`
 
 			//
 			// Part’s brand
 			//
 
-			PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty"`
+			PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty" bson:"part_brand,omitempty"`
 
 			//
 			// Variance from requested part’s price
 			//
 
-			PriceVariance string `xml:"priceVariance,omitempty" json:"priceVariance,omitempty"`
+			PriceVariance string `xml:"priceVariance,omitempty" json:"priceVariance,omitempty" bson:"price_variance,omitempty"`
 
 			//
 			// The quantity available
 			//
 
-			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty"`
+			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
 
 			//
 			// Description of the color of the part
 			//
 
-			AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty"`
+			AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty" bson:"attribute_color,omitempty"`
 
 			//
 			// Description of the size of the part
 			//
 
-			AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty"`
+			AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty" bson:"attribute_size,omitempty"`
 
 			//
 			// Description of the generic selection criteria
 			//
 
-			AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty"`
+			AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty" bson:"attribute_selection,omitempty"`
 
 			AttributeFlexArray struct {
 				AttributeFlex []struct {
-					Id string `xml:"id,omitempty" json:"id,omitempty"`
+					Id string `xml:"id,omitempty" json:"id,omitempty" bson:"id,omitempty"`
 
-					Name string `xml:"name,omitempty" json:"name,omitempty"`
+					Name string `xml:"name,omitempty" json:"name,omitempty" bson:"name,omitempty"`
 
-					Value string `xml:"value,omitempty" json:"value,omitempty"`
-				} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty"`
-			} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty"`
+					Value string `xml:"value,omitempty" json:"value,omitempty" bson:"value,omitempty"`
+				} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty" bson:"attribute_flex,omitempty"`
+			} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty" bson:"attribute_flex_array,omitempty"`
 
 			//
 			// customProductMessage5 Message from the supplier regarding the stock
 			//
 
-			CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty"`
+			CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty" bson:"custom_product_message,omitempty"`
 
 			//
 			// Record type (exact, alternate)
 			//
 
-			EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty"`
+			EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty" bson:"entry_type,omitempty"`
 
 			//
 			// Datetime inventory is available
 			//
-			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty"`
-		} `xml:"ProductVariationInventory,omitempty" json:"ProductVariationInventory,omitempty"`
-	} `xml:"ProductVariationInventoryArray,omitempty" json:"ProductVariationInventoryArray,omitempty"`
+			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
+		} `xml:"ProductVariationInventory,omitempty" json:"ProductVariationInventory,omitempty" bson:"product_variation_inventory,omitempty"`
+	} `xml:"ProductVariationInventoryArray,omitempty" json:"ProductVariationInventoryArray,omitempty" bson:"product_variation_inventory_array,omitempty"`
 
 	ProductCompanionInventoryArray struct {
 		ProductCompanionInventory []struct {
@@ -225,88 +225,88 @@ type Reply struct {
 			// The companion part
 			//
 
-			PartID string `xml:"partID,omitempty" json:"partID,omitempty"`
+			PartID string `xml:"partID,omitempty" json:"partID,omitempty" bson:"part_id,omitempty"`
 
 			//
 			// Part’s description
 			//
 
-			PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty"`
+			PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty" bson:"part_description,omitempty"`
 
 			//
 			// Part’s brand
 			//
 
-			PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty"`
+			PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty" bson:"part_brand,omitempty"`
 
 			//
 			// Companion item price
 			//
 
-			Price string `xml:"price,omitempty" json:"price,omitempty"`
+			Price string `xml:"price,omitempty" json:"price,omitempty" bson:"price,omitempty"`
 
 			//
 			// The quantity available
 			//
 
-			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty"`
+			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
 
 			//
 			// Description of the color of the part
 			//
 
-			AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty"`
+			AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty" bson:"attribute_color,omitempty"`
 
 			//
 			// Description of the size of the part
 			//
 
-			AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty"`
+			AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty" bson:"attribute_size,omitempty"`
 
 			//
 			// Description of the generic selection criteria of the part
 			//
 
-			AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty"`
+			AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty" bson:"attribute_selection,omitempty"`
 
 			AttributeFlexArray struct {
 				AttributeFlex []struct {
-					Id string `xml:"id,omitempty" json:"id,omitempty"`
+					Id string `xml:"id,omitempty" json:"id,omitempty" bson:"id,omitempty"`
 
-					Name string `xml:"name,omitempty" json:"name,omitempty"`
+					Name string `xml:"name,omitempty" json:"name,omitempty" bson:"name,omitempty"`
 
-					Value string `xml:"value,omitempty" json:"value,omitempty"`
-				} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty"`
-			} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty"`
+					Value string `xml:"value,omitempty" json:"value,omitempty" bson:"value,omitempty"`
+				} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty" bson:"attribute_flex,omitempty"`
+			} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty" bson:"attribute_flex_array,omitempty"`
 
 			//
 			// customProductMessage5 Message from the supplier regarding the stock
 			//
 
-			CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty"`
+			CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty" bson:"custom_product_message,omitempty"`
 
 			//
 			// Record type (exact, alternate)
 			//
 
-			EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty"`
+			EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty" bson:"entry_type,omitempty"`
 
 			//
 			// Datetime inventory is available
 			//
-			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty"`
-		} `xml:"ProductCompanionInventory,omitempty" json:"ProductCompanionInventory,omitempty"`
-	} `xml:"ProductCompanionInventoryArray,omitempty" json:"ProductCompanionInventoryArray,omitempty"`
+			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
+		} `xml:"ProductCompanionInventory,omitempty" json:"ProductCompanionInventory,omitempty" bson:"product_companion_inventory,omitempty"`
+	} `xml:"ProductCompanionInventoryArray,omitempty" json:"ProductCompanionInventoryArray,omitempty" bson:"product_companion_inventory_array,omitempty"`
 
 	//
 	// Response for any error requiring notification to requestor
 	//
 
-	ErrorMessage string `xml:"errorMessage,omitempty" json:"errorMessage,omitempty"`
+	ErrorMessage string `xml:"errorMessage,omitempty" json:"errorMessage,omitempty" bson:"error_message,omitempty"`
 
 	CustomMessageArray struct {
-		CustomMessage string `xml:"customMessage,omitempty" json:"customMessage,omitempty"`
-	} `xml:"CustomMessageArray,omitempty" json:"CustomMessageArray,omitempty"`
+		CustomMessage string `xml:"customMessage,omitempty" json:"customMessage,omitempty" bson:"custom_message,omitempty"`
+	} `xml:"CustomMessageArray,omitempty" json:"CustomMessageArray,omitempty" bson:"custom_message_array,omitempty"`
 }
 
 type InventoryService interface {
