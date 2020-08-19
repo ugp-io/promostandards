@@ -931,6 +931,82 @@ type Color struct {
 	ApproximatePms string `xml:"approximatePms,omitempty" json:"approximatePms,omitempty" bson:"approximate_pms,omitempty"`
 }
 
+type ProductPart struct {
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
+
+	Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
+
+	CountryOfOrigin *CountryOfOrigin `xml:"countryOfOrigin,omitempty" json:"countryOfOrigin,omitempty" bson:"country_of_origin,omitempty"`
+
+	ColorArray struct {
+		Color []*Color `xml:"Color,omitempty" json:"Color,omitempty" bson:"color,omitempty"`
+	} `xml:"ColorArray,omitempty" json:"ColorArray,omitempty" bson:"color_array,omitempty"`
+
+	// Primary material of construction
+
+	PrimaryMaterial string `xml:"primaryMaterial,omitempty" json:"primaryMaterial,omitempty" bson:"primary_material,omitempty"`
+
+	SpecificationArray struct {
+		Specification []*Specification `xml:"Specification,omitempty" json:"Specification,omitempty" bson:"specification,omitempty"`
+	} `xml:"SpecificationArray,omitempty" json:"SpecificationArray,omitempty" bson:"specification_array,omitempty"`
+
+	// General shape
+
+	Shape string `xml:"shape,omitempty" json:"shape,omitempty" bson:"shape,omitempty"`
+
+	ApparelSize *ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty" bson:"apparel_size,omitempty"`
+
+	Dimension *Dimension `xml:"Dimension,omitempty" json:"Dimension,omitempty" bson:"dimension,omitempty"`
+
+	// Lead time in days
+	LeadTime int32 `xml:"leadTime,omitempty" json:"leadTime,omitempty" bson:"lead_time,omitempty"`
+
+	// United Nations Standard Products and Services Code (UNSPSC)
+
+	Unspsc string `xml:"unspsc,omitempty" json:"unspsc,omitempty" bson:"unspsc,omitempty"`
+
+	// Global Trade Item Number (GTIN)
+
+	Gtin string `xml:"gtin,omitempty" json:"gtin,omitempty" bson:"gtin,omitempty"`
+
+	// Part specific rush service
+	IsRushService bool `xml:"isRushService,omitempty" json:"isRushService,omitempty" bson:"is_rush_service,omitempty"`
+
+	ProductPackagingArray struct {
+		ProductPackage []*ProductPackage `xml:"ProductPackage,omitempty" json:"ProductPackage,omitempty" bson:"product_package,omitempty"`
+	} `xml:"ProductPackagingArray,omitempty" json:"ProductPackagingArray,omitempty" bson:"product_packaging_array,omitempty"`
+
+	ShippingPackageArray struct {
+		ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty" bson:"shipping_package,omitempty"`
+	} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty" bson:"shipping_package_array,omitempty"`
+
+	EndDate *EndDate `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
+
+	EffectiveDate *EffectiveDate `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
+
+	IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty" bson:"is_closeout,omitempty"`
+
+	IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty" bson:"is_caution,omitempty"`
+
+	CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty" bson:"caution_comment,omitempty"`
+
+	// National Motor Freight Classification Code
+	NmfcCode float64 `xml:"nmfcCode,omitempty" json:"nmfcCode,omitempty" bson:"nmfc_code,omitempty"`
+
+	// National Motor Freight Classification Description
+
+	NmfcDescription string `xml:"nmfcDescription,omitempty" json:"nmfcDescription,omitempty" bson:"nmfc_description,omitempty"`
+
+	// National Motor Freight Classification Number
+
+	NmfcNumber string `xml:"nmfcNumber,omitempty" json:"nmfcNumber,omitempty" bson:"nmfc_number,omitempty"`
+
+	// Manufactured on demand / Made to order
+	IsOnDemand bool `xml:"isOnDemand,omitempty" json:"isOnDemand,omitempty" bson:"is_on_demand,omitempty"`
+
+	// Contains hazardous material
+	IsHazmat bool `xml:"isHazmat,omitempty" json:"isHazmat,omitempty" bson:"is_hazmat,omitempty"`
+}
 type Product struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/ Product" bson:"-"`
 
@@ -966,82 +1042,7 @@ type Product struct {
 	} `xml:"RelatedProductArray,omitempty" json:"RelatedProductArray,omitempty" bson:"related_product_array,omitempty"`
 
 	ProductPartArray struct {
-		ProductPart []struct {
-			PartId *string `xml:"partId,omitempty" json:"partId,omitempty" bson:"part_id,omitempty"`
-
-			Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
-
-			CountryOfOrigin *CountryOfOrigin `xml:"countryOfOrigin,omitempty" json:"countryOfOrigin,omitempty" bson:"country_of_origin,omitempty"`
-
-			ColorArray struct {
-				Color []*Color `xml:"Color,omitempty" json:"Color,omitempty" bson:"color,omitempty"`
-			} `xml:"ColorArray,omitempty" json:"ColorArray,omitempty" bson:"color_array,omitempty"`
-
-			// Primary material of construction
-
-			PrimaryMaterial string `xml:"primaryMaterial,omitempty" json:"primaryMaterial,omitempty" bson:"primary_material,omitempty"`
-
-			SpecificationArray struct {
-				Specification []*Specification `xml:"Specification,omitempty" json:"Specification,omitempty" bson:"specification,omitempty"`
-			} `xml:"SpecificationArray,omitempty" json:"SpecificationArray,omitempty" bson:"specification_array,omitempty"`
-
-			// General shape
-
-			Shape string `xml:"shape,omitempty" json:"shape,omitempty" bson:"shape,omitempty"`
-
-			ApparelSize *ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty" bson:"apparel_size,omitempty"`
-
-			Dimension *Dimension `xml:"Dimension,omitempty" json:"Dimension,omitempty" bson:"dimension,omitempty"`
-
-			// Lead time in days
-			LeadTime int32 `xml:"leadTime,omitempty" json:"leadTime,omitempty" bson:"lead_time,omitempty"`
-
-			// United Nations Standard Products and Services Code (UNSPSC)
-
-			Unspsc string `xml:"unspsc,omitempty" json:"unspsc,omitempty" bson:"unspsc,omitempty"`
-
-			// Global Trade Item Number (GTIN)
-
-			Gtin string `xml:"gtin,omitempty" json:"gtin,omitempty" bson:"gtin,omitempty"`
-
-			// Part specific rush service
-			IsRushService bool `xml:"isRushService,omitempty" json:"isRushService,omitempty" bson:"is_rush_service,omitempty"`
-
-			ProductPackagingArray struct {
-				ProductPackage []*ProductPackage `xml:"ProductPackage,omitempty" json:"ProductPackage,omitempty" bson:"product_package,omitempty"`
-			} `xml:"ProductPackagingArray,omitempty" json:"ProductPackagingArray,omitempty" bson:"product_packaging_array,omitempty"`
-
-			ShippingPackageArray struct {
-				ShippingPackage []*ShippingPackage `xml:"ShippingPackage,omitempty" json:"ShippingPackage,omitempty" bson:"shipping_package,omitempty"`
-			} `xml:"ShippingPackageArray,omitempty" json:"ShippingPackageArray,omitempty" bson:"shipping_package_array,omitempty"`
-
-			EndDate *EndDate `xml:"endDate,omitempty" json:"endDate,omitempty" bson:"end_date,omitempty"`
-
-			EffectiveDate *EffectiveDate `xml:"effectiveDate,omitempty" json:"effectiveDate,omitempty" bson:"effective_date,omitempty"`
-
-			IsCloseout *IsCloseout `xml:"isCloseout,omitempty" json:"isCloseout,omitempty" bson:"is_closeout,omitempty"`
-
-			IsCaution *IsCaution `xml:"isCaution,omitempty" json:"isCaution,omitempty" bson:"is_caution,omitempty"`
-
-			CautionComment *CautionComment `xml:"cautionComment,omitempty" json:"cautionComment,omitempty" bson:"caution_comment,omitempty"`
-
-			// National Motor Freight Classification Code
-			NmfcCode float64 `xml:"nmfcCode,omitempty" json:"nmfcCode,omitempty" bson:"nmfc_code,omitempty"`
-
-			// National Motor Freight Classification Description
-
-			NmfcDescription string `xml:"nmfcDescription,omitempty" json:"nmfcDescription,omitempty" bson:"nmfc_description,omitempty"`
-
-			// National Motor Freight Classification Number
-
-			NmfcNumber string `xml:"nmfcNumber,omitempty" json:"nmfcNumber,omitempty" bson:"nmfc_number,omitempty"`
-
-			// Manufactured on demand / Made to order
-			IsOnDemand bool `xml:"isOnDemand,omitempty" json:"isOnDemand,omitempty" bson:"is_on_demand,omitempty"`
-
-			// Contains hazardous material
-			IsHazmat bool `xml:"isHazmat,omitempty" json:"isHazmat,omitempty" bson:"is_hazmat,omitempty"`
-		} `xml:"ProductPart,omitempty" json:"ProductPart,omitempty" bson:"product_part,omitempty"`
+		ProductPart []ProductPart `xml:"ProductPart,omitempty" json:"ProductPart,omitempty" bson:"product_part,omitempty"`
 	} `xml:"ProductPartArray,omitempty" json:"ProductPartArray,omitempty" bson:"product_part_array,omitempty"`
 
 	// The date time stamp of the most recent change
