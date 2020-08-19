@@ -129,6 +129,83 @@ type Request struct {
 	} `xml:"FilterSelectionArray,omitempty" json:"FilterSelectionArray,omitempty"`
 }
 
+type ProductVariationInventory struct {
+//
+	// The associated part
+	//
+
+	PartID string `xml:"partID,omitempty" json:"partID,omitempty" bson:"part_id,omitempty"`
+
+	//
+	// Part’s description
+	//
+
+	PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty" bson:"part_description,omitempty"`
+
+	//
+	// Part’s brand
+	//
+
+	PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty" bson:"part_brand,omitempty"`
+
+	//
+	// Variance from requested part’s price
+	//
+
+	PriceVariance string `xml:"priceVariance,omitempty" json:"priceVariance,omitempty" bson:"price_variance,omitempty"`
+
+	//
+	// The quantity available
+	//
+
+	QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
+
+	//
+	// Description of the color of the part
+	//
+
+	AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty" bson:"attribute_color,omitempty"`
+
+	//
+	// Description of the size of the part
+	//
+
+	AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty" bson:"attribute_size,omitempty"`
+
+	//
+	// Description of the generic selection criteria
+	//
+
+	AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty" bson:"attribute_selection,omitempty"`
+
+	AttributeFlexArray struct {
+		AttributeFlex []struct {
+			Id string `xml:"id,omitempty" json:"id,omitempty" bson:"id,omitempty"`
+
+			Name string `xml:"name,omitempty" json:"name,omitempty" bson:"name,omitempty"`
+
+			Value string `xml:"value,omitempty" json:"value,omitempty" bson:"value,omitempty"`
+		} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty" bson:"attribute_flex,omitempty"`
+	} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty" bson:"attribute_flex_array,omitempty"`
+
+	//
+	// customProductMessage5 Message from the supplier regarding the stock
+	//
+
+	CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty" bson:"custom_product_message,omitempty"`
+
+	//
+	// Record type (exact, alternate)
+	//
+
+	EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty" bson:"entry_type,omitempty"`
+
+	//
+	// Datetime inventory is available
+	//
+	ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
+}
+
 type Reply struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/InventoryService/1.0.0/ Reply" bson:"-"`
 
@@ -139,83 +216,7 @@ type Reply struct {
 	ProductID string `xml:"productID,omitempty" json:"productID,omitempty" bson:"product_id,omitempty"`
 
 	ProductVariationInventoryArray struct {
-		ProductVariationInventory []struct {
-
-			//
-			// The associated part
-			//
-
-			PartID string `xml:"partID,omitempty" json:"partID,omitempty" bson:"part_id,omitempty"`
-
-			//
-			// Part’s description
-			//
-
-			PartDescription string `xml:"partDescription,omitempty" json:"partDescription,omitempty" bson:"part_description,omitempty"`
-
-			//
-			// Part’s brand
-			//
-
-			PartBrand string `xml:"partBrand,omitempty" json:"partBrand,omitempty" bson:"part_brand,omitempty"`
-
-			//
-			// Variance from requested part’s price
-			//
-
-			PriceVariance string `xml:"priceVariance,omitempty" json:"priceVariance,omitempty" bson:"price_variance,omitempty"`
-
-			//
-			// The quantity available
-			//
-
-			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
-
-			//
-			// Description of the color of the part
-			//
-
-			AttributeColor string `xml:"attributeColor,omitempty" json:"attributeColor,omitempty" bson:"attribute_color,omitempty"`
-
-			//
-			// Description of the size of the part
-			//
-
-			AttributeSize string `xml:"attributeSize,omitempty" json:"attributeSize,omitempty" bson:"attribute_size,omitempty"`
-
-			//
-			// Description of the generic selection criteria
-			//
-
-			AttributeSelection string `xml:"attributeSelection,omitempty" json:"attributeSelection,omitempty" bson:"attribute_selection,omitempty"`
-
-			AttributeFlexArray struct {
-				AttributeFlex []struct {
-					Id string `xml:"id,omitempty" json:"id,omitempty" bson:"id,omitempty"`
-
-					Name string `xml:"name,omitempty" json:"name,omitempty" bson:"name,omitempty"`
-
-					Value string `xml:"value,omitempty" json:"value,omitempty" bson:"value,omitempty"`
-				} `xml:"AttributeFlex,omitempty" json:"AttributeFlex,omitempty" bson:"attribute_flex,omitempty"`
-			} `xml:"AttributeFlexArray,omitempty" json:"AttributeFlexArray,omitempty" bson:"attribute_flex_array,omitempty"`
-
-			//
-			// customProductMessage5 Message from the supplier regarding the stock
-			//
-
-			CustomProductMessage string `xml:"customProductMessage,omitempty" json:"customProductMessage,omitempty" bson:"custom_product_message,omitempty"`
-
-			//
-			// Record type (exact, alternate)
-			//
-
-			EntryType string `xml:"entryType,omitempty" json:"entryType,omitempty" bson:"entry_type,omitempty"`
-
-			//
-			// Datetime inventory is available
-			//
-			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
-		} `xml:"ProductVariationInventory,omitempty" json:"ProductVariationInventory,omitempty" bson:"product_variation_inventory,omitempty"`
+		ProductVariationInventory []ProductVariationInventory `xml:"ProductVariationInventory,omitempty" json:"ProductVariationInventory,omitempty" bson:"product_variation_inventory,omitempty"`
 	} `xml:"ProductVariationInventoryArray,omitempty" json:"ProductVariationInventoryArray,omitempty" bson:"product_variation_inventory_array,omitempty"`
 
 	ProductCompanionInventoryArray struct {
