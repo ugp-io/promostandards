@@ -3,6 +3,7 @@
 package myservice
 
 import (
+	"fmt"
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
@@ -2528,7 +2529,10 @@ func (service *pOService) GetSupportedOrderTypes(request *GetSupportedOrderTypes
 
 func (service *pOService) SendPOContext(ctx context.Context, request *SendPORequest) (*SendPOResponse, error) {
 	response := new(SendPOResponse)
+	fmt.Println(request)
+	fmt.Println(response)
 	err := service.client.CallContext(ctx, "sendPO", request, response)
+	fmt.Println(err)
 	if err != nil {
 		return nil, err
 	}
