@@ -2426,24 +2426,24 @@ type PO struct {
 	OrderDate time.Time `xml:"orderDate,omitempty" json:"orderDate,omitempty"`
 
 	// The date and time the purchase order was last modified
-	LastModified time.Time `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
+	// LastModified time.Time `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
 
 	// The total dollar amount of the purchase order
 	TotalAmount float64 `xml:"totalAmount,omitempty" json:"totalAmount,omitempty"`
 
 	// The terms of the purchase order. i.e. NET15, NET30, etc.
-	PaymentTerms string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
+	// PaymentTerms string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
 	// Used to indicate a rush on the purchase order.
 	Rush bool `xml:"rush,omitempty" json:"rush,omitempty"`
 
 	Currency string `xml:"currency,omitempty" json:"currency,omitempty"`
 
-	DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
+	// DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
 
-	OrderContactArray struct {
-		Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
-	} `xml:"OrderContactArray,omitempty" json:"OrderContactArray,omitempty"`
+	// OrderContactArray struct {
+	// 	Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
+	// } `xml:"OrderContactArray,omitempty" json:"OrderContactArray,omitempty"`
 
 	ShipmentArray struct {
 		Shipment []*Shipment `xml:"Shipment,omitempty" json:"Shipment,omitempty"`
@@ -2458,15 +2458,15 @@ type PO struct {
 
 	// The sales channel
 
-	SalesChannel string `xml:"salesChannel,omitempty" json:"salesChannel,omitempty"`
+	// SalesChannel string `xml:"salesChannel,omitempty" json:"salesChannel,omitempty"`
 
 	// The promotion code
 
-	PromoCode string `xml:"promoCode,omitempty" json:"promoCode,omitempty"`
+	// PromoCode string `xml:"promoCode,omitempty" json:"promoCode,omitempty"`
 
-	TaxInformationArray struct {
-		TaxInformation []*TaxInformation `xml:"TaxInformation,omitempty" json:"TaxInformation,omitempty"`
-	} `xml:"TaxInformationArray,omitempty" json:"TaxInformationArray,omitempty"`
+	// TaxInformationArray struct {
+	// 	TaxInformation []*TaxInformation `xml:"TaxInformation,omitempty" json:"TaxInformation,omitempty"`
+	// } `xml:"TaxInformationArray,omitempty" json:"TaxInformationArray,omitempty"`
 }
 
 type SendPORequest struct {
