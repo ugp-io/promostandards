@@ -9,6 +9,25 @@ import (
 	"time"
 )
 
+type customTime struct {
+    time.Time
+}
+
+func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+    const shortForm = "2006-01-02T15:04:05"
+    var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := time.Parse(shortForm, v)
+		if err != nil {
+			return err
+		}
+		*c = customTime{parse}
+	}
+    
+    return nil
+}
+
 // against "unused imports"
 var _ time.Time
 var _ xml.Name
@@ -2382,10 +2401,10 @@ type LineItem struct {
 	LineItemTotal float64 `xml:"lineItemTotal,omitempty" json:"lineItemTotal,omitempty"`
 
 	// The date the line item is requested to ship from the FOB point.
-	RequestedShipDate time.Time `xml:"requestedShipDate,omitempty" json:"requestedShipDate,omitempty"`
+	RequestedShipDate *customTime `xml:"requestedShipDate,omitempty" json:"requestedShipDate,omitempty"`
 
 	// The date the line item is requested to arrive at the shipping destination
-	RequestedInHandsDate time.Time `xml:"requestedInHandsDate,omitempty" json:"requestedInHandsDate,omitempty"`
+	RequestedInHandsDate *customTime `xml:"requestedInHandsDate,omitempty" json:"requestedInHandsDate,omitempty"`
 
 	ReferenceSalesQuote string `xml:"referenceSalesQuote,omitempty" json:"referenceSalesQuote,omitempty"`
 
@@ -2422,10 +2441,10 @@ type PO struct {
 	OrderNumber string `xml:"orderNumber,omitempty" json:"orderNumber,omitempty"`
 
 	// The date and time of the purchase order.
-	OrderDate time.Time `xml:"orderDate,omitempty" json:"orderDate,omitempty"`
+	OrderDate *customTime `xml:"orderDate,omitempty" json:"orderDate,omitempty"`
 
 	// The date and time the purchase order was last modified
-	// LastModified time.Time `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
+	// LastModified *customTime `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
 
 	// The total dollar amount of the purchase order
 	TotalAmount float64 `xml:"totalAmount,omitempty" json:"totalAmount,omitempty"`
