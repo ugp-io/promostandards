@@ -2531,6 +2531,8 @@ func (service *pOService) SendPOContext(ctx context.Context, request *SendPORequ
 	response := new(SendPOResponse)
 	fmt.Println(request)
 	fmt.Println(response)
+	c, _ := xml.Marshal(request)
+	fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "sendPO", request, response)
 	fmt.Println(err)
 	if err != nil {
