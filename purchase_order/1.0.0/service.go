@@ -2047,7 +2047,7 @@ type Decoration struct {
 	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 }
 
-type Description string
+
 
 type DigitalProofAddress struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ DigitalProofAddress"`
