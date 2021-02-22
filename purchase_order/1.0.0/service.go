@@ -2415,7 +2415,7 @@ type PO struct {
 
 	// The type of data transferred in the request
 
-	OrderType *OrderTypeType `xml:"orderType,omitempty" json:"orderType,omitempty"`
+	OrderType string `xml:"orderType,omitempty" json:"orderType,omitempty"`
 
 	// Purchase order number
 
@@ -2436,7 +2436,7 @@ type PO struct {
 	// Used to indicate a rush on the purchase order.
 	Rush bool `xml:"rush,omitempty" json:"rush,omitempty"`
 
-	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
+	Currency string `xml:"currency,omitempty" json:"currency,omitempty"`
 
 	DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
 
