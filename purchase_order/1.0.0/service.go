@@ -2337,11 +2337,11 @@ type Uom ISO20022UomCode
 type GetSupportedOrderTypesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ GetSupportedOrderTypesRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 }
 
 type GetSupportedOrderTypesResponse struct {
@@ -2471,11 +2471,11 @@ type PO struct {
 type SendPORequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ SendPORequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
 	PO *PO `xml:"PO,omitempty" json:"PO,omitempty"`
 }
