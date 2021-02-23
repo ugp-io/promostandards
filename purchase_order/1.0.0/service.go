@@ -2470,10 +2470,10 @@ type PO struct {
 	TotalAmount float64 `xml:"totalAmount,omitempty" json:"totalAmount,omitempty"`
 
 	// The terms of the purchase order. i.e. NET15, NET30, etc.
-	// PaymentTerms string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
+	PaymentTerms string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
 	// Used to indicate a rush on the purchase order.
-	Rush bool `xml:"rush,omitempty" json:"rush,omitempty"`
+	Rush bool `xml:"rush" json:"rush,omitempty"`
 
 	Currency string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
 
