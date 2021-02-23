@@ -2203,7 +2203,7 @@ type Part struct {
 
 	ExtendedPrice *ExtendedPrice `xml:"extendedPrice,omitempty" json:"extendedPrice,omitempty"`
 
-	ShipmentLinkArray ShipmentLinkArray `xml:"ShipmentLinkArray,omitempty" json:"ShipmentLinkArray,omitempty"`
+	ShipmentLinkArray *ShipmentLinkArray `xml:"ShipmentLinkArray,omitempty" json:"ShipmentLinkArray,omitempty"`
 
 }
 
