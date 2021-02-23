@@ -2272,10 +2272,10 @@ type Shipment struct {
 	AllowConsolidation bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ allowConsolidation" json:"allowConsolidation,omitempty"`
 
 	// Require blind shipping
-	BlindShip bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ blindShip,omitempty" json:"blindShip"`
+	BlindShip bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ blindShip" json:"blindShip"`
 
 	// Packing list required
-	PackingListRequired bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ packingListRequired,omitempty" json:"packingListRequired,omitempty"`
+	PackingListRequired bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ packingListRequired" json:"packingListRequired,omitempty"`
 
 	FreightDetails *FreightDetails `xml:"FreightDetails,omitempty" json:"FreightDetails,omitempty"`
 
