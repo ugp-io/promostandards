@@ -2488,7 +2488,7 @@ type PO struct {
 	LineItemArray LineItemArray `xml:"LineItemArray,omitempty" json:"LineItemArray,omitempty"`
 
 	// The terms and conditions for this purchase order.  Information that is order specific or information dealing with the configuration or shipment of the order should not be entered here.
-	TermsAndConditions string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ termsAndConditions,omitempty" json:"termsAndConditions,omitempty"`
+	TermsAndConditions string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ termsAndConditions" json:"termsAndConditions,omitempty"`
 
 	// The sales channel
 
