@@ -2176,7 +2176,7 @@ type Location struct {
 }
 
 type ShipmentLinkArray struct {
-	ShipmentLink []*ShipmentLink `xml:"ShipmentLink,omitempty" json:"ShipmentLink,omitempty"`
+	ShipmentLink []*ShipmentLink `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ShipmentLinkArrayShipmentLink,omitempty" json:"ShipmentLink,omitempty"`
 }
 
 type Part struct {
