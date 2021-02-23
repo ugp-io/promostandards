@@ -1994,7 +1994,7 @@ type Configuration struct {
 	ReferenceNumber string `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
 
 	// Indicates that this line item is for a preproduction proof
-	PreProductionProof bool `xml:"preProductionProof" json:"preProductionProof,omitempty"`
+	PreProductionProof bool `xml:"preProductionProof" json:"preProductionProof"`
 }
 
 type ContactDetails struct {
@@ -2095,7 +2095,7 @@ type DigitalProof struct {
 	} `xml:"DigitalProofAddressArray,omitempty" json:"DigitalProofAddressArray,omitempty"`
 
 	// A Boolean value set to TRUE indicates a proof is required for this purchase order; the value is FALSE otherwise.
-	Required bool `xml:"required,omitempty" json:"required"`
+	Required bool `xml:"required" json:"required"`
 }
 
 type Dimensions struct {
@@ -2109,7 +2109,7 @@ type Dimensions struct {
 
 	Width *Width `xml:"width,omitempty" json:"width,omitempty"`
 
-	UseMaxLocationDimensions bool `xml:"useMaxLocationDimensions,omitempty" json:"useMaxLocationDimensions"`
+	UseMaxLocationDimensions bool `xml:"useMaxLocationDimensions" json:"useMaxLocationDimensions"`
 
 	Geometry *Geometry `xml:"geometry,omitempty" json:"geometry,omitempty"`
 }
@@ -2301,7 +2301,7 @@ type TaxInformation struct {
 	TaxJurisdiction string `xml:"taxJurisdiction,omitempty" json:"taxJurisdiction,omitempty"`
 
 	// Tax Exempt
-	TaxExempt bool `xml:"taxExempt,omitempty" json:"taxExempt"`
+	TaxExempt bool `xml:"taxExempt" json:"taxExempt"`
 
 	// The purchasers tax identifier
 
@@ -2408,7 +2408,7 @@ type LineItem struct {
 	ToleranceDetails *ToleranceDetails `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ToleranceDetails,omitempty" json:"ToleranceDetails,omitempty"`
 
 	// Allow partial shipments of this line item
-	AllowPartialShipments bool `xml:"allowPartialShipments,omitempty" json:"allowPartialShipments"`
+	AllowPartialShipments bool `xml:"allowPartialShipments" json:"allowPartialShipments"`
 
 	UnitPrice *UnitPrice `xml:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 
