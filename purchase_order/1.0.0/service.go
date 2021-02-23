@@ -4,6 +4,7 @@ package myservice
 
 import (
 	"context"
+	"fmt"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
 	"time"
@@ -2487,7 +2488,7 @@ type PO struct {
 	LineItemArray LineItemArray `xml:"LineItemArray,omitempty" json:"LineItemArray,omitempty"`
 
 	// The terms and conditions for this purchase order.  Information that is order specific or information dealing with the configuration or shipment of the order should not be entered here.
-	TermsAndConditions string `xml:"termsAndConditions,omitempty" json:"termsAndConditions,omitempty"`
+	TermsAndConditions string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ termsAndConditions,omitempty" json:"termsAndConditions,omitempty"`
 
 	// The sales channel
 
@@ -2563,6 +2564,8 @@ func (service *pOService) GetSupportedOrderTypes(request *GetSupportedOrderTypes
 
 func (service *pOService) SendPOContext(ctx context.Context, request *SendPORequest) (*SendPOResponse, error) {
 	response := new(SendPOResponse)
+	c, _ := xml.Marshal(request)
+	fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "sendPO", request, response)
 	if err != nil {
 		return nil, err
