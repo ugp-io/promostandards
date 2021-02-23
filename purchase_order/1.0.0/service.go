@@ -9,11 +9,11 @@ import (
 	"time"
 )
 
-type customTime struct {
+type CustomTime struct {
     time.Time
 }
 
-func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
     const shortForm = "2006-01-02T15:04:05"
     var v string
 	d.DecodeElement(&v, &start)
@@ -22,10 +22,16 @@ func (c *customTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 		if err != nil {
 			return err
 		}
-		*c = customTime{parse}
+		*c = CustomTime{parse}
 	}
     
     return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
 }
 
 // against "unused imports"
@@ -1995,47 +2001,47 @@ type ContactDetails struct {
 
 	// Attention To (first and last name of contact)
 
-	AttentionTo string `xml:"attentionTo,omitempty" json:"attentionTo,omitempty"`
+	AttentionTo string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ attentionTo,omitempty" json:"attentionTo,omitempty"`
 
 	// The company name
 
-	CompanyName string `xml:"companyName,omitempty" json:"companyName,omitempty"`
+	CompanyName string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ companyName,omitempty" json:"companyName,omitempty"`
 
 	// Address line 1
 
-	Address1 string `xml:"address1,omitempty" json:"address1,omitempty"`
+	Address1 string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ address1,omitempty" json:"address1,omitempty"`
 
 	// Address line 2
 
-	Address2 string `xml:"address2,omitempty" json:"address2,omitempty"`
+	Address2 string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ address2,omitempty" json:"address2,omitempty"`
 
 	// Address line 3
 
-	Address3 string `xml:"address3,omitempty" json:"address3,omitempty"`
+	Address3 string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ address3,omitempty" json:"address3,omitempty"`
 
 	// The city
 
-	City string `xml:"city,omitempty" json:"city,omitempty"`
+	City string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ city,omitempty" json:"city,omitempty"`
 
 	// The 2 character US state abbreviation or 2-3 character non-US region
 
-	Region string `xml:"region,omitempty" json:"region,omitempty"`
+	Region string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ region,omitempty" json:"region,omitempty"`
 
 	// The postal code
 
-	PostalCode string `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
+	PostalCode string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ postalCode,omitempty" json:"postalCode,omitempty"`
 
 	// The country
 
-	Country *ISO3166CountyCode `xml:"country,omitempty" json:"country,omitempty"`
+	Country *ISO3166CountyCode `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ country,omitempty" json:"country,omitempty"`
 
-	Email string `xml:"email,omitempty" json:"email,omitempty"`
+	Email string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ email,omitempty" json:"email,omitempty"`
 
 	// The phone
 
-	Phone string `xml:"phone,omitempty" json:"phone,omitempty"`
+	Phone string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ phone,omitempty" json:"phone,omitempty"`
 
-	Comments string `xml:"comments,omitempty" json:"comments,omitempty"`
+	Comments string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ comments,omitempty" json:"comments,omitempty"`
 }
 
 type Contact struct {
@@ -2114,11 +2120,11 @@ type FreightDetails struct {
 
 	// The carrier used for this shipment.
 
-	Carrier string `xml:"carrier,omitempty" json:"carrier,omitempty"`
+	Carrier string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ carrier,omitempty" json:"carrier,omitempty"`
 
 	// The service type requested by the carrier.
 
-	Service string `xml:"service,omitempty" json:"service,omitempty"`
+	Service string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ service,omitempty" json:"service,omitempty"`
 }
 
 type LayerOrStop struct {
@@ -2177,20 +2183,20 @@ type Part struct {
 
 	PartGroup string `xml:"partGroup,omitempty" json:"partGroup,omitempty"`
 
-	PartId string `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
 	// How the part is being represented to the distributor's customer
 
 	CustomerPartId string `xml:"customerPartId,omitempty" json:"customerPartId,omitempty"`
 
 	// The part will be supplied by the customer or another entity other than the supplier
-	CustomerSupplied bool `xml:"customerSupplied,omitempty" json:"customerSupplied,omitempty"`
+	CustomerSupplied bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ customerSupplied,omitempty" json:"customerSupplied,omitempty"`
 
 	Description string `xml:"description,omitempty" json:"description,omitempty"`
 
-	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
+	Quantity *Quantity `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Quantity,omitempty" json:"Quantity,omitempty"`
 
-	LocationLinkId []*LocationLinkId `xml:"locationLinkId,omitempty" json:"locationLinkId,omitempty"`
+	LocationLinkId []*LocationLinkId `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ locationLinkId,omitempty" json:"locationLinkId,omitempty"`
 
 	UnitPrice *UnitPrice `xml:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 
@@ -2213,10 +2219,10 @@ type Quantity struct {
 
 	// The unit of measure; values are enumerated.
 
-	Uom *QuantityUomType `xml:"uom,omitempty" json:"uom,omitempty"`
+	Uom *QuantityUomType `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ uom,omitempty" json:"uom,omitempty"`
 
 	// The quantity value
-	Value float64 `xml:"value,omitempty" json:"value,omitempty"`
+	Value float64 `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ value,omitempty" json:"value,omitempty"`
 }
 
 type ServiceMessageArray struct {
@@ -2255,20 +2261,20 @@ type Shipment struct {
 
 	// Array of two strings max
 
-	ShipReferences string `xml:"shipReferences,omitempty" json:"shipReferences,omitempty"`
+	ShipReferences string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ shipReferences,omitempty" json:"shipReferences,omitempty"`
 
-	Comments *Comments `xml:"comments,omitempty" json:"comments,omitempty"`
+	Comments string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ comments,omitempty" json:"comments,omitempty"`
 
 	ThirdPartyAccount *ThirdPartyAccount `xml:"ThirdPartyAccount,omitempty" json:"ThirdPartyAccount,omitempty"`
 
 	// Allow consolidation of shipments
-	AllowConsolidation bool `xml:"allowConsolidation,omitempty" json:"allowConsolidation,omitempty"`
+	AllowConsolidation bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ allowConsolidation,omitempty" json:"allowConsolidation,omitempty"`
 
 	// Require blind shipping
-	BlindShip bool `xml:"blindShip,omitempty" json:"blindShip,omitempty"`
+	BlindShip bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ blindShip,omitempty" json:"blindShip,omitempty"`
 
 	// Packing list required
-	PackingListRequired bool `xml:"packingListRequired,omitempty" json:"packingListRequired,omitempty"`
+	PackingListRequired bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ packingListRequired,omitempty" json:"packingListRequired,omitempty"`
 
 	FreightDetails *FreightDetails `xml:"FreightDetails,omitempty" json:"FreightDetails,omitempty"`
 
@@ -2279,7 +2285,7 @@ type ShipTo struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ShipTo"`
 
 	// The shipment will be a pickup and will not be shipped.
-	CustomerPickup bool `xml:"customerPickup,omitempty" json:"customerPickup,omitempty"`
+	CustomerPickup bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ customerPickup,omitempty" json:"customerPickup,omitempty"`
 
 	ContactDetails *ContactDetails `xml:"ContactDetails,omitempty" json:"ContactDetails,omitempty"`
 
@@ -2325,7 +2331,7 @@ type ToleranceDetails struct {
 
 	Value float64 `xml:"value,omitempty" json:"value,omitempty"`
 
-	Tolerance *ToleranceType `xml:"tolerance,omitempty" json:"tolerance,omitempty"`
+	Tolerance *ToleranceType `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ tolerance,omitempty" json:"tolerance,omitempty"`
 }
 
 type TypesetArray struct {
@@ -2388,7 +2394,7 @@ type LineItem struct {
 
 	LineReferenceId string `xml:"lineReferenceId,omitempty" json:"lineReferenceId,omitempty"`
 
-	Description string `xml:"description,omitempty" json:"description,omitempty"`
+	Description string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ description,omitempty" json:"description,omitempty"`
 
 	// The type of order
 
@@ -2398,7 +2404,7 @@ type LineItem struct {
 
 	FobId *FobId `xml:"fobId,omitempty" json:"fobId,omitempty"`
 
-	ToleranceDetails *ToleranceDetails `xml:"ToleranceDetails,omitempty" json:"ToleranceDetails,omitempty"`
+	ToleranceDetails *ToleranceDetails `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ToleranceDetails,omitempty" json:"ToleranceDetails,omitempty"`
 
 	// Allow partial shipments of this line item
 	AllowPartialShipments bool `xml:"allowPartialShipments,omitempty" json:"allowPartialShipments,omitempty"`
@@ -2408,10 +2414,10 @@ type LineItem struct {
 	LineItemTotal float64 `xml:"lineItemTotal,omitempty" json:"lineItemTotal,omitempty"`
 
 	// The date the line item is requested to ship from the FOB point.
-	RequestedShipDate *customTime `xml:"requestedShipDate,omitempty" json:"requestedShipDate,omitempty"`
+	RequestedShipDate *CustomTime `xml:"requestedShipDate,omitempty" json:"requestedShipDate,omitempty"`
 
 	// The date the line item is requested to arrive at the shipping destination
-	RequestedInHandsDate *customTime `xml:"requestedInHandsDate,omitempty" json:"requestedInHandsDate,omitempty"`
+	RequestedInHandsDate *CustomTime `xml:"requestedInHandsDate,omitempty" json:"requestedInHandsDate,omitempty"`
 
 	ReferenceSalesQuote string `xml:"referenceSalesQuote,omitempty" json:"referenceSalesQuote,omitempty"`
 
@@ -2454,7 +2460,7 @@ type PO struct {
 	OrderNumber string `xml:"orderNumber,omitempty" json:"orderNumber,omitempty"`
 
 	// The date and time of the purchase order.
-	OrderDate *customTime `xml:"orderDate,omitempty" json:"orderDate,omitempty"`
+	OrderDate *CustomTime `xml:"orderDate,omitempty" json:"orderDate,omitempty"`
 
 	// The date and time the purchase order was last modified
 	// LastModified *customTime `xml:"lastModified,omitempty" json:"lastModified,omitempty"`
@@ -2468,7 +2474,7 @@ type PO struct {
 	// Used to indicate a rush on the purchase order.
 	Rush bool `xml:"rush,omitempty" json:"rush,omitempty"`
 
-	Currency string `xml:"currency,omitempty" json:"currency,omitempty"`
+	Currency string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
 
 	// DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
 
