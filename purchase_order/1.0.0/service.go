@@ -2269,10 +2269,10 @@ type Shipment struct {
 	ThirdPartyAccount *ThirdPartyAccount `xml:"ThirdPartyAccount,omitempty" json:"ThirdPartyAccount,omitempty"`
 
 	// Allow consolidation of shipments
-	AllowConsolidation bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ allowConsolidation,omitempty" json:"allowConsolidation,omitempty"`
+	AllowConsolidation bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ allowConsolidation" json:"allowConsolidation,omitempty"`
 
 	// Require blind shipping
-	BlindShip bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ blindShip,omitempty" json:"blindShip,omitempty"`
+	BlindShip bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ blindShip,omitempty" json:"blindShip"`
 
 	// Packing list required
 	PackingListRequired bool `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ packingListRequired,omitempty" json:"packingListRequired,omitempty"`
