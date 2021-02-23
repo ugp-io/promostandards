@@ -2374,6 +2374,10 @@ type GetSupportedOrderTypesResponse struct {
 	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty"`
 }
 
+type PartArray struct {
+	Part []*Part `xml:"Part,omitempty" json:"Part,omitempty"`
+}
+
 type LineItem struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ LineItem"`
 
@@ -2384,7 +2388,7 @@ type LineItem struct {
 
 	LineReferenceId string `xml:"lineReferenceId,omitempty" json:"lineReferenceId,omitempty"`
 
-	Description *Description `xml:"description,omitempty" json:"description,omitempty"`
+	Description string `xml:"description,omitempty" json:"description,omitempty"`
 
 	// The type of order
 
@@ -2425,9 +2429,7 @@ type LineItem struct {
 
 	LineItemGroupingId *LineItemGroupingId `xml:"lineItemGroupingId,omitempty" json:"lineItemGroupingId,omitempty"`
 
-	PartArray struct {
-		Part []*Part `xml:"Part,omitempty" json:"Part,omitempty"`
-	} `xml:"PartArray,omitempty" json:"PartArray,omitempty"`
+	PartArray PartArray `xml:"PartArray,omitempty" json:"PartArray,omitempty"`
 
 	Configuration *Configuration `xml:"Configuration,omitempty" json:"Configuration,omitempty"`
 }
