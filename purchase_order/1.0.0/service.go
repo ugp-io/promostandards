@@ -2290,7 +2290,7 @@ type ShipTo struct {
 
 	ContactDetails *ContactDetails `xml:"ContactDetails,omitempty" json:"ContactDetails,omitempty"`
 
-	ShipmentId *ShipmentId `xml:"shipmentId,omitempty" json:"shipmentId,omitempty"`
+	ShipmentId int `xml:"shipmentId" json:"shipmentId,omitempty"`
 }
 
 type TaxInformation struct {
