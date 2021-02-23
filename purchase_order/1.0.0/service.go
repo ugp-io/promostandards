@@ -2410,9 +2410,9 @@ type LineItem struct {
 	// Allow partial shipments of this line item
 	AllowPartialShipments bool `xml:"allowPartialShipments" json:"allowPartialShipments"`
 
-	UnitPrice float64 `xml:"unitPrice" json:"unitPrice,omitempty"`
+	UnitPrice *float64 `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ unitPrice" json:"unitPrice,omitempty"`
 
-	LineItemTotal float64 `xml:"lineItemTotal" json:"lineItemTotal,omitempty"`
+	LineItemTotal *float64 `xml:"lineItemTotal" json:"lineItemTotal,omitempty"`
 
 	// The date the line item is requested to ship from the FOB point.
 	RequestedShipDate *CustomTime `xml:"requestedShipDate,omitempty" json:"requestedShipDate,omitempty"`
