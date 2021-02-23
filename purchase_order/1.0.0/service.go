@@ -2029,13 +2029,13 @@ type ContactDetails struct {
 
 	Country *ISO3166CountyCode `xml:"country,omitempty" json:"country,omitempty"`
 
-	Email *Email `xml:"email,omitempty" json:"email,omitempty"`
+	Email string `xml:"email,omitempty" json:"email,omitempty"`
 
 	// The phone
 
 	Phone string `xml:"phone,omitempty" json:"phone,omitempty"`
 
-	Comments *Comments `xml:"comments,omitempty" json:"comments,omitempty"`
+	Comments string `xml:"comments,omitempty" json:"comments,omitempty"`
 }
 
 type Contact struct {
@@ -2075,7 +2075,7 @@ type DigitalProofAddress struct {
 
 	Type *DigitalProofAddressTypeType `xml:"type,omitempty" json:"type,omitempty"`
 
-	Email *Email `xml:"email,omitempty" json:"email,omitempty"`
+	Email string `xml:"email,omitempty" json:"email,omitempty"`
 
 	LineItemGroupingId *LineItemGroupingId `xml:"lineItemGroupingId,omitempty" json:"lineItemGroupingId,omitempty"`
 }
@@ -2168,12 +2168,16 @@ type Location struct {
 	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
 }
 
+type ShipmentLinkArray struct {
+	ShipmentLink []*ShipmentLink `xml:"ShipmentLink,omitempty" json:"ShipmentLink,omitempty"`
+}
+
 type Part struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Part"`
 
-	PartGroup *PartGroup `xml:"partGroup,omitempty" json:"partGroup,omitempty"`
+	PartGroup string `xml:"partGroup,omitempty" json:"partGroup,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId string `xml:"partId,omitempty" json:"partId,omitempty"`
 
 	// How the part is being represented to the distributor's customer
 
@@ -2182,7 +2186,7 @@ type Part struct {
 	// The part will be supplied by the customer or another entity other than the supplier
 	CustomerSupplied bool `xml:"customerSupplied,omitempty" json:"customerSupplied,omitempty"`
 
-	Description *Description `xml:"description,omitempty" json:"description,omitempty"`
+	Description string `xml:"description,omitempty" json:"description,omitempty"`
 
 	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
 
@@ -2192,9 +2196,8 @@ type Part struct {
 
 	ExtendedPrice *ExtendedPrice `xml:"extendedPrice,omitempty" json:"extendedPrice,omitempty"`
 
-	ShipmentLinkArray struct {
-		ShipmentLink []*ShipmentLink `xml:"ShipmentLink,omitempty" json:"ShipmentLink,omitempty"`
-	} `xml:"ShipmentLinkArray,omitempty" json:"ShipmentLinkArray,omitempty"`
+	ShipmentLinkArray ShipmentLinkArray `xml:"ShipmentLinkArray,omitempty" json:"ShipmentLinkArray,omitempty"`
+
 }
 
 type Program struct {
@@ -2429,6 +2432,14 @@ type LineItem struct {
 	Configuration *Configuration `xml:"Configuration,omitempty" json:"Configuration,omitempty"`
 }
 
+type ShipmentArray struct {
+	Shipment []*Shipment `xml:"Shipment,omitempty" json:"Shipment,omitempty"`
+}
+
+type LineItemArray struct {
+	LineItem []*LineItem `xml:"LineItem,omitempty" json:"LineItem,omitempty"`
+}
+
 type PO struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ PO"`
 
@@ -2463,13 +2474,9 @@ type PO struct {
 	// 	Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
 	// } `xml:"OrderContactArray,omitempty" json:"OrderContactArray,omitempty"`
 
-	ShipmentArray struct {
-		Shipment []*Shipment `xml:"Shipment,omitempty" json:"Shipment,omitempty"`
-	} `xml:"ShipmentArray,omitempty" json:"ShipmentArray,omitempty"`
+	ShipmentArray ShipmentArray `xml:"ShipmentArray,omitempty" json:"ShipmentArray,omitempty"`
 
-	LineItemArray struct {
-		LineItem []*LineItem `xml:"LineItem,omitempty" json:"LineItem,omitempty"`
-	} `xml:"LineItemArray,omitempty" json:"LineItemArray,omitempty"`
+	LineItemArray LineItemArray `xml:"LineItemArray,omitempty" json:"LineItemArray,omitempty"`
 
 	// The terms and conditions for this purchase order.  Information that is order specific or information dealing with the configuration or shipment of the order should not be entered here.
 	TermsAndConditions string `xml:"termsAndConditions,omitempty" json:"termsAndConditions,omitempty"`
