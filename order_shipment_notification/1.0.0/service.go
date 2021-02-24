@@ -41,11 +41,11 @@ type ErrorMessage struct {
 type GetOrderShipmentNotificationRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/ GetOrderShipmentNotificationRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
 	// The type of query you wish to perform.
 	//
@@ -131,39 +131,39 @@ type GetOrderShipmentNotificationResponse struct {
 							Complete bool `xml:"complete,omitempty" json:"complete,omitempty"`
 
 							ShipFromAddress struct {
-								Address1 *Address1 `xml:"address1,omitempty" json:"address1,omitempty"`
+								Address1 *string `xml:"address1,omitempty" json:"address1,omitempty"`
 
-								Address2 *Address2 `xml:"address2,omitempty" json:"address2,omitempty"`
+								Address2 *string `xml:"address2,omitempty" json:"address2,omitempty"`
 
-								Address3 *Address3 `xml:"address3,omitempty" json:"address3,omitempty"`
+								Address3 *string `xml:"address3,omitempty" json:"address3,omitempty"`
 
-								Address4 *Address4 `xml:"address4,omitempty" json:"address4,omitempty"`
+								Address4 *string `xml:"address4,omitempty" json:"address4,omitempty"`
 
-								City *City `xml:"city,omitempty" json:"city,omitempty"`
+								City *string `xml:"city,omitempty" json:"city,omitempty"`
 
-								Region *Region `xml:"region,omitempty" json:"region,omitempty"`
+								Region *string `xml:"region,omitempty" json:"region,omitempty"`
 
-								PostalCode *PostalCode `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
+								PostalCode *string `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
 
-								Country *Country `xml:"country,omitempty" json:"country,omitempty"`
+								Country *string `xml:"country,omitempty" json:"country,omitempty"`
 							} `xml:"ShipFromAddress,omitempty" json:"ShipFromAddress,omitempty"`
 
 							ShipToAddress struct {
-								Address1 *Address1 `xml:"address1,omitempty" json:"address1,omitempty"`
+								Address1 *string `xml:"address1,omitempty" json:"address1,omitempty"`
 
-								Address2 *Address2 `xml:"address2,omitempty" json:"address2,omitempty"`
+								Address2 *string `xml:"address2,omitempty" json:"address2,omitempty"`
 
-								Address3 *Address3 `xml:"address3,omitempty" json:"address3,omitempty"`
+								Address3 *string `xml:"address3,omitempty" json:"address3,omitempty"`
 
-								Address4 *Address4 `xml:"address4,omitempty" json:"address4,omitempty"`
+								Address4 *string `xml:"address4,omitempty" json:"address4,omitempty"`
 
-								City *City `xml:"city,omitempty" json:"city,omitempty"`
+								City *string `xml:"city,omitempty" json:"city,omitempty"`
 
-								Region *Region `xml:"region,omitempty" json:"region,omitempty"`
+								Region *string `xml:"region,omitempty" json:"region,omitempty"`
 
-								PostalCode *PostalCode `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
+								PostalCode *string `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
 
-								Country *Country `xml:"country,omitempty" json:"country,omitempty"`
+								Country *string `xml:"country,omitempty" json:"country,omitempty"`
 							} `xml:"ShipToAddress,omitempty" json:"ShipToAddress,omitempty"`
 
 							// Used to identify the type of destination for the Ship-To address.

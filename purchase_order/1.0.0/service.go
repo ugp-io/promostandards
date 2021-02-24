@@ -4,7 +4,7 @@ package myservice
 
 import (
 	"context"
-	"fmt"
+	// "fmt"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
 	"time"
@@ -2564,8 +2564,8 @@ func (service *pOService) GetSupportedOrderTypes(request *GetSupportedOrderTypes
 
 func (service *pOService) SendPOContext(ctx context.Context, request *SendPORequest) (*SendPOResponse, error) {
 	response := new(SendPOResponse)
-	c, _ := xml.Marshal(request)
-	fmt.Println(string(c))
+	// c, _ := xml.Marshal(request)
+	// fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "sendPO", request, response)
 	if err != nil {
 		return nil, err

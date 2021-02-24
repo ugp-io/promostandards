@@ -3,7 +3,7 @@
 package myservice
 
 import (
-	"fmt"
+	// "fmt"
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
@@ -216,8 +216,8 @@ func NewOrderStatusService(client *soap.Client) OrderStatusService {
 
 func (service *orderStatusService) GetOrderStatusDetailsContext(ctx context.Context, request *GetOrderStatusDetailsRequest) (*GetOrderStatusDetailsResponse, error) {
 	response := new(GetOrderStatusDetailsResponse)
-	c, _ := xml.Marshal(request)
-	fmt.Println(string(c))
+	// c, _ := xml.Marshal(request)
+	// fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "getOrderStatusDetails", request, response)
 	if err != nil {
 		return nil, err
