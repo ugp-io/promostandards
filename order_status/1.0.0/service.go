@@ -26,17 +26,17 @@ type GetOrderStatusDetailsRequest struct {
 
 	// The Standard Version of the Web Service being referenced
 
-	WsVersion string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
 	// The customerID or any other agreed upon ID.
 
-	Id string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
 	//
 	// The password associated with the customerID.
 	//
 
-	Password string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
 	//
 	// The type of query you wish to perform. 1 = PO Number, 2 = Sales Order Number, 3 = Last update, 4 = All Open
@@ -154,17 +154,17 @@ type GetOrderStatusTypesRequest struct {
 
 	// The Standard Version of the Web Service being referenced
 
-	WsVersion string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
 	// The customerID or any other agreed upon ID.
 
-	Id string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
 	//
 	// The password associated with the customerID.
 	//
 
-	Password string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 }
 
 type GetOrderStatusTypesResponse struct {
