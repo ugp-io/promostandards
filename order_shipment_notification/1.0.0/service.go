@@ -71,11 +71,11 @@ type ErrorMessage struct {
 type GetOrderShipmentNotificationRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/ GetOrderShipmentNotificationRequest"`
 
-	WsVersion *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
 	// The type of query you wish to perform.
 	//
