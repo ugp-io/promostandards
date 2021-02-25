@@ -3,6 +3,7 @@
 package myservice
 
 import (
+	"fmt"
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
@@ -301,6 +302,8 @@ func NewOrderShipmentNotificationService(client *soap.Client) OrderShipmentNotif
 
 func (service *orderShipmentNotificationService) GetOrderShipmentNotificationContext(ctx context.Context, request *GetOrderShipmentNotificationRequest) (*GetOrderShipmentNotificationResponse, error) {
 	response := new(GetOrderShipmentNotificationResponse)
+	c, _ := xml.Marshal(request)
+	fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "getOrderShipmentNotification", request, response)
 	if err != nil {
 		return nil, err
