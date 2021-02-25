@@ -9,6 +9,35 @@ import (
 	"time"
 )
 
+type CustomTime struct {
+    time.Time
+}
+
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+    var shortForm = "2006-01-02T15:04:05Z"
+    var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := time.Parse(shortForm, v)
+		if err != nil {
+			var shortForm = "2006-01-02T15:04:05"
+			parse, err = time.Parse(shortForm, v)
+			if err != nil {
+				return err
+			}
+		}
+		*c = CustomTime{parse}
+	}
+    
+    return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05Z"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
+}
+
 // against "unused imports"
 var _ time.Time
 var _ xml.Name
@@ -41,11 +70,11 @@ type ErrorMessage struct {
 type GetOrderShipmentNotificationRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/OrderShipmentNotificationService/1.0.0/ GetOrderShipmentNotificationRequest"`
 
-	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
 	// The type of query you wish to perform.
 	//
@@ -60,7 +89,7 @@ type GetOrderShipmentNotificationRequest struct {
 	//
 	// The earliest date for of shipments to return in UTC.  Required when the queryType is 3.  ISO 8601
 	//
-	ShipmentDateTimeStamp time.Time `xml:"shipmentDateTimeStamp,omitempty" json:"shipmentDateTimeStamp,omitempty"`
+	ShipmentDateTimeStamp *CustomTime `xml:"shipmentDateTimeStamp,omitempty" json:"shipmentDateTimeStamp,omitempty"`
 }
 
 type ShipmentDestinationTypeType string
@@ -180,7 +209,7 @@ type GetOrderShipmentNotificationResponse struct {
 									TrackingNumber string `xml:"trackingNumber,omitempty" json:"trackingNumber,omitempty"`
 
 									// The date for the shipment in UTC.  ISO 8601
-									ShipmentDate time.Time `xml:"shipmentDate,omitempty" json:"shipmentDate,omitempty"`
+									ShipmentDate *CustomTime `xml:"shipmentDate,omitempty" json:"shipmentDate,omitempty"`
 
 									// The dimensional unit of measure.
 									DimUOM *DimUOMType `xml:"dimUOM,omitempty" json:"dimUOM,omitempty"`
