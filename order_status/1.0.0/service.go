@@ -22,6 +22,31 @@ type AnyURI string
 
 type NCName string
 
+type CustomTime struct {
+    time.Time
+}
+
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+    const shortForm = "2006-01-02T15:04:05"
+    var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := time.Parse(shortForm, v)
+		if err != nil {
+			return err
+		}
+		*c = CustomTime{parse}
+	}
+    
+    return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
+}
+
 type GetOrderStatusDetailsRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/OrderStatusService/1.0.0/ GetOrderStatusDetailsRequest"`
 
@@ -53,7 +78,7 @@ type GetOrderStatusDetailsRequest struct {
 	//
 	// Beginning date time since last status change. This field will indicate the change date time for any status change GREATER the date time stamp provided.
 	//
-	StatusTimeStamp time.Time `xml:"statusTimeStamp,omitempty" json:"statusTimeStamp,omitempty"`
+	StatusTimeStamp *CustomTime `xml:"statusTimeStamp,omitempty" json:"statusTimeStamp,omitempty"`
 }
 
 type GetOrderStatusDetailsResponse struct {
@@ -93,12 +118,12 @@ type GetOrderStatusDetailsResponse struct {
 					//
 					// The expected ship date for the purchase order
 					//
-					ExpectedShipDate time.Time `xml:"expectedShipDate,omitempty" json:"expectedShipDate,omitempty"`
+					ExpectedShipDate *CustomTime `xml:"expectedShipDate,omitempty" json:"expectedShipDate,omitempty"`
 
 					//
 					// The expected date the order should arrive at customer also known as the “in hands date”
 					//
-					ExpectedDeliveryDate time.Time `xml:"expectedDeliveryDate,omitempty" json:"expectedDeliveryDate,omitempty"`
+					ExpectedDeliveryDate *CustomTime `xml:"expectedDeliveryDate,omitempty" json:"expectedDeliveryDate,omitempty"`
 
 					ResponseToArray struct {
 						RespondTo []struct {
@@ -137,7 +162,7 @@ type GetOrderStatusDetailsResponse struct {
 					//
 					// Time of order status
 					//
-					ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty"`
+					ValidTimestamp *CustomTime `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty"`
 				} `xml:"OrderStatusDetail,omitempty" json:"OrderStatusDetail,omitempty"`
 			} `xml:"OrderStatusDetailArray,omitempty" json:"OrderStatusDetailArray,omitempty"`
 		} `xml:"OrderStatus,omitempty" json:"OrderStatus,omitempty"`
