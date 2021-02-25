@@ -27,13 +27,17 @@ type CustomTime struct {
 }
 
 func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-    const shortForm = "2006-01-02T15:04:05Z"
+    var shortForm = "2006-01-02T15:04:05Z"
     var v string
 	d.DecodeElement(&v, &start)
 	if v != "" {
 		parse, err := time.Parse(shortForm, v)
 		if err != nil {
-			return err
+			var shortForm = "2006-01-02T15:04:05Z"
+			parse, err = time.Parse(shortForm, v)
+			if err != nil {
+				return err
+			}
 		}
 		*c = CustomTime{parse}
 	}
