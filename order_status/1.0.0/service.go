@@ -27,7 +27,7 @@ type CustomTime struct {
 }
 
 func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-    const shortForm = "2006-01-02T15:04:05"
+    const shortForm = "2006-01-02T15:04:05Z"
     var v string
 	d.DecodeElement(&v, &start)
 	if v != "" {
@@ -42,7 +42,7 @@ func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 }
 
 func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	const shortForm = "2006-01-02T15:04:05"
+	const shortForm = "2006-01-02T15:04:05Z"
 	s := c.Format(shortForm)
 	return e.EncodeElement(s, start)
 }
