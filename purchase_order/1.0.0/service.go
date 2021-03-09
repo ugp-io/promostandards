@@ -2403,7 +2403,7 @@ type LineItem struct {
 
 	Quantity *Quantity `xml:"Quantity,omitempty" json:"Quantity,omitempty"`
 
-	FobId *string `xml:"fobId,omitempty" json:"fobId,omitempty"`
+	FobId *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ fobId,omitempty" json:"fobId,omitempty"`
 
 	ToleranceDetails *ToleranceDetails `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ToleranceDetails,omitempty" json:"ToleranceDetails,omitempty"`
 
