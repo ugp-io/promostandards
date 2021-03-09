@@ -36,7 +36,11 @@ func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			var shortForm = "2006-01-02T15:04:05"
 			parse, err = time.Parse(shortForm, v)
 			if err != nil {
-				return err
+				var shortForm = "2006-01-02T15:04:05+00:00"
+				parse, err = time.Parse(shortForm, v)
+				if err != nil {
+					return err
+				}
 			}
 		}
 		*c = CustomTime{parse}
