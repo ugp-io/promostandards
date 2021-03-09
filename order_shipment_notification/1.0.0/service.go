@@ -3,7 +3,7 @@
 package myservice
 
 import (
-	"fmt"
+	// "fmt"
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
@@ -24,7 +24,11 @@ func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			var shortForm = "2006-01-02T15:04:05"
 			parse, err = time.Parse(shortForm, v)
 			if err != nil {
-				return err
+				var shortForm = "2006-01-02T15:04:05+00:00"
+				parse, err = time.Parse(shortForm, v)
+				if err != nil {
+					return err
+				}
 			}
 		}
 		*c = CustomTime{parse}
@@ -302,8 +306,8 @@ func NewOrderShipmentNotificationService(client *soap.Client) OrderShipmentNotif
 
 func (service *orderShipmentNotificationService) GetOrderShipmentNotificationContext(ctx context.Context, request *GetOrderShipmentNotificationRequest) (*GetOrderShipmentNotificationResponse, error) {
 	response := new(GetOrderShipmentNotificationResponse)
-	c, _ := xml.Marshal(request)
-	fmt.Println(string(c))
+	// c, _ := xml.Marshal(request)
+	// fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "getOrderShipmentNotification", request, response)
 	if err != nil {
 		return nil, err
