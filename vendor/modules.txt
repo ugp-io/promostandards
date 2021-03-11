@@ -1,0 +1,8 @@
+# github.com/araddon/dateparse v0.0.0-20210207001429-0eec95c9db7e
+## explicit
+github.com/araddon/dateparse
+# github.com/hooklift/gowsdl v0.4.0
+## explicit
+github.com/hooklift/gowsdl/soap
+# github.com/stretchr/testify v1.7.0
+## explicit
