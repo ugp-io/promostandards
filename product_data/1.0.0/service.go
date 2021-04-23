@@ -5,7 +5,6 @@ package service
 import (
 	"context"
 	"encoding/xml"
-	"fmt"
 	"time"
 
 	"github.com/hooklift/gowsdl/soap"
@@ -1198,8 +1197,8 @@ func NewProductDataService(client *soap.Client) ProductDataService {
 
 func (service *productDataService) GetProductContext(ctx context.Context, request *GetProductRequest) (*GetProductResponse, error) {
 	response := new(GetProductResponse)
-	c, _ := xml.Marshal(request)
-	fmt.Println(string(c))
+	// c, _ := xml.Marshal(request)
+	// fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "getProduct", request, response)
 	if err != nil {
 		return nil, err
