@@ -745,7 +745,7 @@ type GetProductRequest struct {
 
 	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
-	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
 	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
