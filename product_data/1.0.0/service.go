@@ -741,13 +741,13 @@ type GetProductRequest struct {
 
 	Password *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
 	ProductId *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
-	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
 	// A specific part color for this product
 
