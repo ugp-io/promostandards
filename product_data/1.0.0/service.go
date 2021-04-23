@@ -5,8 +5,9 @@ package service
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
 	"time"
+
+	"github.com/hooklift/gowsdl/soap"
 )
 
 // against "unused imports"
@@ -751,9 +752,13 @@ type GetProductRequest struct {
 
 	ColorName string `xml:"colorName,omitempty" json:"colorName,omitempty"`
 
-	ApparelSizeArray struct {
-		ApparelSize []*ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty"`
-	} `xml:"ApparelSizeArray,omitempty" json:"ApparelSizeArray,omitempty"`
+	ApparelSizeArray *ApparelSizeArray `xml:"ApparelSizeArray,omitempty" json:"ApparelSizeArray,omitempty"`
+}
+
+type ApparelSizeArray struct {
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ ApparelSizeArray" bson:"-"`
+
+	ApparelSize []*ApparelSize `xml:"ApparelSize,omitempty" json:"ApparelSize,omitempty" bson:"apparel_size,omitempty"`
 }
 
 type ShipmentDestinationTypeType string
@@ -1014,7 +1019,7 @@ type Product struct {
 
 	// The supplier name for the product
 
-	ProductName string `xml:"productName,omitempty" json:"productName,omitempty" bson:"product_name,omitempty"`
+	ProductName *string `xml:"productName,omitempty" json:"productName,omitempty" bson:"product_name,omitempty"`
 
 	Description []*Description `xml:"description,omitempty" json:"description,omitempty" bson:"description,omitempty"`
 
@@ -1028,7 +1033,7 @@ type Product struct {
 
 	// Product Brand
 
-	ProductBrand string `xml:"productBrand,omitempty" json:"productBrand,omitempty" bson:"product_brand,omitempty"`
+	ProductBrand *string `xml:"productBrand,omitempty" json:"productBrand,omitempty" bson:"product_brand,omitempty"`
 
 	// Product status for export
 	Export bool `xml:"export,omitempty" json:"export,omitempty" bson:"export,omitempty"`
