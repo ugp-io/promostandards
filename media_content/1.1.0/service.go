@@ -5,8 +5,9 @@ package service
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
 	"time"
+
+	"github.com/hooklift/gowsdl/soap"
 )
 
 // against "unused imports"
@@ -65,23 +66,23 @@ type MediaType MediaTypeType
 type GetMediaContentRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentRequest"  bson:"-"`
 
-	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	CultureName *string `xml:"cultureName,omitempty" json:"cultureName,omitempty"`
+	CultureName *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ cultureName,omitempty" json:"cultureName,omitempty"`
 
-	MediaType *string `xml:"mediaType,omitempty" json:"mediaType,omitempty"`
+	MediaType *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ mediaType,omitempty" json:"mediaType,omitempty"`
 
-	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
-	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
 	// The part ID associated to the product ID.
 	//
-	ClassType int32 `xml:"classType,omitempty" json:"classType,omitempty"`
+	ClassType int32 `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ classType,omitempty" json:"classType,omitempty"`
 }
 
 type MediaContent struct {
