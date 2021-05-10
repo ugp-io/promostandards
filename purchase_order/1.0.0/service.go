@@ -5,6 +5,7 @@ package myservice
 import (
 	"context"
 	"fmt"
+
 	// "fmt"
 	"encoding/xml"
 	"time"
@@ -2365,11 +2366,11 @@ type Uom ISO20022UomCode
 type GetSupportedOrderTypesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ GetSupportedOrderTypesRequest"`
 
-	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 }
 
 type GetSupportedOrderTypesResponse struct {
