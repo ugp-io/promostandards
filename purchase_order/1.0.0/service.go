@@ -4,19 +4,21 @@ package myservice
 
 import (
 	"context"
+	"fmt"
 	// "fmt"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
-	"github.com/araddon/dateparse"
 	"time"
+
+	"github.com/araddon/dateparse"
+	"github.com/hooklift/gowsdl/soap"
 )
 
 type CustomTime struct {
-    time.Time
+	time.Time
 }
 
 func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-    var v string
+	var v string
 	d.DecodeElement(&v, &start)
 	if v != "" {
 		parse, err := dateparse.ParseAny(v)
@@ -25,8 +27,8 @@ func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 		}
 		*c = CustomTime{parse}
 	}
-    
-    return nil
+
+	return nil
 }
 
 func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -2073,8 +2075,6 @@ type Decoration struct {
 	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 }
 
-
-
 type DigitalProofAddress struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ DigitalProofAddress"`
 
@@ -2204,7 +2204,6 @@ type Part struct {
 	ExtendedPrice *ExtendedPrice `xml:"extendedPrice,omitempty" json:"extendedPrice,omitempty"`
 
 	ShipmentLinkArray *ShipmentLinkArray `xml:"ShipmentLinkArray,omitempty" json:"ShipmentLinkArray,omitempty"`
-
 }
 
 type Program struct {
@@ -2503,7 +2502,6 @@ type PO struct {
 	// } `xml:"TaxInformationArray,omitempty" json:"TaxInformationArray,omitempty"`
 }
 
-
 type SendPORequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ SendPORequest"`
 
@@ -2547,6 +2545,8 @@ func NewPOService(client *soap.Client) POService {
 
 func (service *pOService) GetSupportedOrderTypesContext(ctx context.Context, request *GetSupportedOrderTypesRequest) (*GetSupportedOrderTypesResponse, error) {
 	response := new(GetSupportedOrderTypesResponse)
+	c, _ := xml.Marshal(request)
+	fmt.Println(string(c))
 	err := service.client.CallContext(ctx, "getSupportedOrderTypes", request, response)
 	if err != nil {
 		return nil, err
