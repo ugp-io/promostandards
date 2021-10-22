@@ -11,11 +11,11 @@ import (
 	"github.com/hooklift/gowsdl/soap"
 )
 
-type CustomTime struct {
+type CustomDate struct {
 	time.Time
 }
 
-func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (c *CustomDate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
 	if v != "" {
@@ -23,14 +23,14 @@ func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 		if err != nil {
 			return err
 		}
-		*c = CustomTime{parse}
+		*c = CustomDate{parse}
 	}
 
 	return nil
 }
 
-func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	const shortForm = "2006-01-02T15:04:05Z"
+func (c *CustomDate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02"
 	s := c.Format(shortForm)
 	return e.EncodeElement(s, start)
 }
@@ -1709,11 +1709,11 @@ type AccountInfo struct {
 	Phone *string `xml:"phone,omitempty" json:"phone,omitempty"`
 }
 
-type AvailableTimeStamp CustomTime
+type AvailableTimeStamp CustomDate
 
 type Currency CurrencyCodeType
 
-type InvoiceDate CustomTime
+type InvoiceDate CustomDate
 
 type InvoiceLineItem struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ InvoiceLineItem"`
@@ -1749,13 +1749,13 @@ type InvoiceLineItem struct {
 	DistributorPartId *string `xml:"distributorPartId,omitempty" json:"distributorPartId,omitempty"`
 }
 
-type InvoiceVoidedDate CustomTime
+type InvoiceVoidedDate CustomDate
 
-type InvoiceVoidedAvailableTimeStamp CustomTime
+type InvoiceVoidedAvailableTimeStamp CustomDate
 
-type PaymentDueDate CustomTime
+type PaymentDueDate CustomDate
 
-type RequestedDate CustomTime
+type RequestedDate CustomDate
 
 type ServiceMessageArray struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ ServiceMessageArray"`
@@ -1783,7 +1783,7 @@ type Tax struct {
 	TaxAmount *float64 `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
 }
 
-type VoidDate CustomTime
+type VoidDate CustomDate
 
 type GetInvoicesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ GetInvoicesRequest"`
@@ -1828,7 +1828,7 @@ type Invoice struct {
 
 	PaymentTerms *string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
-	PaymentDueDate *CustomTime `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
+	PaymentDueDate *CustomDate `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
 
 	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
 
