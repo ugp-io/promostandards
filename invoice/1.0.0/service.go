@@ -7,8 +7,33 @@ import (
 	"encoding/xml"
 	"time"
 
+	"github.com/araddon/dateparse"
 	"github.com/hooklift/gowsdl/soap"
 )
+
+type CustomTime struct {
+	time.Time
+}
+
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := dateparse.ParseAny(v)
+		if err != nil {
+			return err
+		}
+		*c = CustomTime{parse}
+	}
+
+	return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05Z"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
+}
 
 // against "unused imports"
 var _ time.Time
@@ -1684,11 +1709,11 @@ type AccountInfo struct {
 	Phone *string `xml:"phone,omitempty" json:"phone,omitempty"`
 }
 
-type AvailableTimeStamp time.Time
+type AvailableTimeStamp CustomTime
 
 type Currency CurrencyCodeType
 
-type InvoiceDate time.Time
+type InvoiceDate CustomTime
 
 type InvoiceLineItem struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ InvoiceLineItem"`
@@ -1724,13 +1749,13 @@ type InvoiceLineItem struct {
 	DistributorPartId *string `xml:"distributorPartId,omitempty" json:"distributorPartId,omitempty"`
 }
 
-type InvoiceVoidedDate time.Time
+type InvoiceVoidedDate CustomTime
 
-type InvoiceVoidedAvailableTimeStamp time.Time
+type InvoiceVoidedAvailableTimeStamp CustomTime
 
-type PaymentDueDate time.Time
+type PaymentDueDate CustomTime
 
-type RequestedDate time.Time
+type RequestedDate CustomTime
 
 type ServiceMessageArray struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ ServiceMessageArray"`
@@ -1758,7 +1783,7 @@ type Tax struct {
 	TaxAmount *float64 `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
 }
 
-type VoidDate time.Time
+type VoidDate CustomTime
 
 type GetInvoicesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ GetInvoicesRequest"`
@@ -1803,7 +1828,7 @@ type Invoice struct {
 
 	PaymentTerms *string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
-	PaymentDueDate *time.Time `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
+	PaymentDueDate *CustomTime `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
 
 	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
 
