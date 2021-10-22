@@ -1763,19 +1763,19 @@ type VoidDate time.Time
 type GetInvoicesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ GetInvoicesRequest"`
 
-	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	QueryType *int `xml:"queryType,omitempty" json:"queryType,omitempty"`
+	QueryType *int `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ queryType,omitempty" json:"queryType,omitempty"`
 
-	ReferenceNumber *string `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
+	ReferenceNumber *string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ referenceNumber,omitempty" json:"referenceNumber,omitempty"`
 
-	RequestedDate *RequestedDate `xml:"requestedDate,omitempty" json:"requestedDate,omitempty"`
+	RequestedDate *RequestedDate `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ requestedDate,omitempty" json:"requestedDate,omitempty"`
 
-	AvailableTimeStamp *AvailableTimeStamp `xml:"availableTimeStamp,omitempty" json:"availableTimeStamp,omitempty"`
+	AvailableTimeStamp *AvailableTimeStamp `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ availableTimeStamp,omitempty" json:"availableTimeStamp,omitempty"`
 }
 
 type Invoice struct {
