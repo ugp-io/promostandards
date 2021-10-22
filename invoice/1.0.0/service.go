@@ -1810,7 +1810,7 @@ type Invoice struct {
 
 	InvoiceType *string `xml:"invoiceType,omitempty" json:"invoiceType,omitempty"`
 
-	InvoiceDate *InvoiceDate `xml:"invoiceDate,omitempty" json:"invoiceDate,omitempty"`
+	InvoiceDate *string `xml:"invoiceDate,omitempty" json:"invoiceDate,omitempty"`
 
 	PurchaseOrderNumber *string `xml:"purchaseOrderNumber,omitempty" json:"purchaseOrderNumber,omitempty"`
 
@@ -1828,7 +1828,7 @@ type Invoice struct {
 
 	PaymentTerms *string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
-	PaymentDueDate *CustomDate `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
+	PaymentDueDate *string `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
 
 	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
 
