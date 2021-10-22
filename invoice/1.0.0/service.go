@@ -5,8 +5,9 @@ package myservice
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
 	"time"
+
+	"github.com/hooklift/gowsdl/soap"
 )
 
 // against "unused imports"
@@ -1658,11 +1659,11 @@ const (
 type AccountInfo struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ AccountInfo"`
 
-	AccountName *AccountName `xml:"accountName,omitempty" json:"accountName,omitempty"`
+	AccountName *string `xml:"accountName,omitempty" json:"accountName,omitempty"`
 
-	AccountNumber *AccountNumber `xml:"accountNumber,omitempty" json:"accountNumber,omitempty"`
+	AccountNumber *string `xml:"accountNumber,omitempty" json:"accountNumber,omitempty"`
 
-	AttentionTo *AttentionTo `xml:"attentionTo,omitempty" json:"attentionTo,omitempty"`
+	AttentionTo *string `xml:"attentionTo,omitempty" json:"attentionTo,omitempty"`
 
 	Address1 *AddressLine `xml:"Address1,omitempty" json:"Address1,omitempty"`
 
@@ -1670,17 +1671,17 @@ type AccountInfo struct {
 
 	Address3 *AddressLine `xml:"Address3,omitempty" json:"Address3,omitempty"`
 
-	City *City `xml:"city,omitempty" json:"city,omitempty"`
+	City *string `xml:"city,omitempty" json:"city,omitempty"`
 
-	Region *Region `xml:"region,omitempty" json:"region,omitempty"`
+	Region *string `xml:"region,omitempty" json:"region,omitempty"`
 
-	PostalCode *PostalCode `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
+	PostalCode *string `xml:"postalCode,omitempty" json:"postalCode,omitempty"`
 
-	Country *Country `xml:"country,omitempty" json:"country,omitempty"`
+	Country *string `xml:"country,omitempty" json:"country,omitempty"`
 
-	Email *Email `xml:"email,omitempty" json:"email,omitempty"`
+	Email *string `xml:"email,omitempty" json:"email,omitempty"`
 
-	Phone *Phone `xml:"phone,omitempty" json:"phone,omitempty"`
+	Phone *string `xml:"phone,omitempty" json:"phone,omitempty"`
 }
 
 type AvailableTimeStamp time.Time
@@ -1692,35 +1693,35 @@ type InvoiceDate time.Time
 type InvoiceLineItem struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ InvoiceLineItem"`
 
-	InvoiceLineItemNumber *InvoiceLineItemNumber `xml:"invoiceLineItemNumber,omitempty" json:"invoiceLineItemNumber,omitempty"`
+	InvoiceLineItemNumber *int `xml:"invoiceLineItemNumber,omitempty" json:"invoiceLineItemNumber,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
-	ChargeId *ChargeId `xml:"chargeId,omitempty" json:"chargeId,omitempty"`
+	ChargeId *string `xml:"chargeId,omitempty" json:"chargeId,omitempty"`
 
-	PurchaseOrderLineItemNumber *PurchaseOrderLineItemNumber `xml:"purchaseOrderLineItemNumber,omitempty" json:"purchaseOrderLineItemNumber,omitempty"`
+	PurchaseOrderLineItemNumber *string `xml:"purchaseOrderLineItemNumber,omitempty" json:"purchaseOrderLineItemNumber,omitempty"`
 
-	OrderedQuantity *OrderedQuantity `xml:"orderedQuantity,omitempty" json:"orderedQuantity,omitempty"`
+	OrderedQuantity *int `xml:"orderedQuantity,omitempty" json:"orderedQuantity,omitempty"`
 
-	InvoiceQuantity *InvoiceQuantity `xml:"invoiceQuantity,omitempty" json:"invoiceQuantity,omitempty"`
+	InvoiceQuantity *int `xml:"invoiceQuantity,omitempty" json:"invoiceQuantity,omitempty"`
 
-	BackOrderedQuantity *BackOrderedQuantity `xml:"backOrderedQuantity,omitempty" json:"backOrderedQuantity,omitempty"`
+	BackOrderedQuantity *int `xml:"backOrderedQuantity,omitempty" json:"backOrderedQuantity,omitempty"`
 
-	QuantityUOM *QuantityUOM `xml:"quantityUOM,omitempty" json:"quantityUOM,omitempty"`
+	QuantityUOM *string `xml:"quantityUOM,omitempty" json:"quantityUOM,omitempty"`
 
-	LineItemDescription *LineItemDescription `xml:"lineItemDescription,omitempty" json:"lineItemDescription,omitempty"`
+	LineItemDescription *string `xml:"lineItemDescription,omitempty" json:"lineItemDescription,omitempty"`
 
-	UnitPrice *UnitPrice `xml:"unitPrice,omitempty" json:"unitPrice,omitempty"`
+	UnitPrice *float64 `xml:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 
-	DiscountAmount *DiscountAmount `xml:"discountAmount,omitempty" json:"discountAmount,omitempty"`
+	DiscountAmount *float64 `xml:"discountAmount,omitempty" json:"discountAmount,omitempty"`
 
-	ExtendedPrice *ExtendedPrice `xml:"extendedPrice,omitempty" json:"extendedPrice,omitempty"`
+	ExtendedPrice *float64 `xml:"extendedPrice,omitempty" json:"extendedPrice,omitempty"`
 
-	DistributorProductId *DistributorProductId `xml:"distributorProductId,omitempty" json:"distributorProductId,omitempty"`
+	DistributorProductId *string `xml:"distributorProductId,omitempty" json:"distributorProductId,omitempty"`
 
-	DistributorPartId *DistributorPartId `xml:"distributorPartId,omitempty" json:"distributorPartId,omitempty"`
+	DistributorPartId *string `xml:"distributorPartId,omitempty" json:"distributorPartId,omitempty"`
 }
 
 type InvoiceVoidedDate time.Time
@@ -1750,11 +1751,11 @@ type ServiceMessage struct {
 type Tax struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/SharedObjects/ tax"`
 
-	TaxType *TaxType `xml:"taxType,omitempty" json:"taxType,omitempty"`
+	TaxType *string `xml:"taxType,omitempty" json:"taxType,omitempty"`
 
-	TaxJurisdiction *TaxJurisdiction `xml:"taxJurisdiction,omitempty" json:"taxJurisdiction,omitempty"`
+	TaxJurisdiction *string `xml:"taxJurisdiction,omitempty" json:"taxJurisdiction,omitempty"`
 
-	TaxAmount *TaxAmount `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
+	TaxAmount *float64 `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
 }
 
 type VoidDate time.Time
@@ -1762,15 +1763,15 @@ type VoidDate time.Time
 type GetInvoicesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ GetInvoicesRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	QueryType *QueryType `xml:"queryType,omitempty" json:"queryType,omitempty"`
+	QueryType *int `xml:"queryType,omitempty" json:"queryType,omitempty"`
 
-	ReferenceNumber *ReferenceNumber `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
+	ReferenceNumber *string `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
 
 	RequestedDate *RequestedDate `xml:"requestedDate,omitempty" json:"requestedDate,omitempty"`
 
@@ -1780,15 +1781,15 @@ type GetInvoicesRequest struct {
 type Invoice struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ Invoice"`
 
-	InvoiceNumber *InvoiceNumber `xml:"invoiceNumber,omitempty" json:"invoiceNumber,omitempty"`
+	InvoiceNumber *string `xml:"invoiceNumber,omitempty" json:"invoiceNumber,omitempty"`
 
-	InvoiceType *InvoiceType `xml:"invoiceType,omitempty" json:"invoiceType,omitempty"`
+	InvoiceType *string `xml:"invoiceType,omitempty" json:"invoiceType,omitempty"`
 
 	InvoiceDate *InvoiceDate `xml:"invoiceDate,omitempty" json:"invoiceDate,omitempty"`
 
-	PurchaseOrderNumber *PurchaseOrderNumber `xml:"purchaseOrderNumber,omitempty" json:"purchaseOrderNumber,omitempty"`
+	PurchaseOrderNumber *string `xml:"purchaseOrderNumber,omitempty" json:"purchaseOrderNumber,omitempty"`
 
-	PurchaseOrderVersion *PurchaseOrderVersion `xml:"purchaseOrderVersion,omitempty" json:"purchaseOrderVersion,omitempty"`
+	PurchaseOrderVersion *string `xml:"purchaseOrderVersion,omitempty" json:"purchaseOrderVersion,omitempty"`
 
 	BillTo struct {
 		AccountInfo *AccountInfo `xml:"AccountInfo,omitempty" json:"AccountInfo,omitempty"`
@@ -1798,45 +1799,45 @@ type Invoice struct {
 		AccountInfo *AccountInfo `xml:"AccountInfo,omitempty" json:"AccountInfo,omitempty"`
 	} `xml:"SoldTo,omitempty" json:"SoldTo,omitempty"`
 
-	InvoiceComments *InvoiceComments `xml:"invoiceComments,omitempty" json:"invoiceComments,omitempty"`
+	InvoiceComments *string `xml:"invoiceComments,omitempty" json:"invoiceComments,omitempty"`
 
-	PaymentTerms *PaymentTerms `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
+	PaymentTerms *string `xml:"paymentTerms,omitempty" json:"paymentTerms,omitempty"`
 
-	PaymentDueDate *PaymentDueDate `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
+	PaymentDueDate *time.Time `xml:"paymentDueDate,omitempty" json:"paymentDueDate,omitempty"`
 
 	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
 
-	Fob *Fob `xml:"fob,omitempty" json:"fob,omitempty"`
+	Fob *string `xml:"fob,omitempty" json:"fob,omitempty"`
 
-	SalesAmount *SalesAmount `xml:"salesAmount,omitempty" json:"salesAmount,omitempty"`
+	SalesAmount *float64 `xml:"salesAmount,omitempty" json:"salesAmount,omitempty"`
 
-	ShippingAmount *ShippingAmount `xml:"shippingAmount,omitempty" json:"shippingAmount,omitempty"`
+	ShippingAmount *float64 `xml:"shippingAmount,omitempty" json:"shippingAmount,omitempty"`
 
-	HandlingAmount *HandlingAmount `xml:"handlingAmount,omitempty" json:"handlingAmount,omitempty"`
+	HandlingAmount *float64 `xml:"handlingAmount,omitempty" json:"handlingAmount,omitempty"`
 
-	TaxAmount *TaxAmount `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
+	TaxAmount *float64 `xml:"taxAmount,omitempty" json:"taxAmount,omitempty"`
 
-	InvoiceAmount *InvoiceAmount `xml:"invoiceAmount,omitempty" json:"invoiceAmount,omitempty"`
+	InvoiceAmount *float64 `xml:"invoiceAmount,omitempty" json:"invoiceAmount,omitempty"`
 
-	AdvancePaymentAmount *AdvancePaymentAmount `xml:"advancePaymentAmount,omitempty" json:"advancePaymentAmount,omitempty"`
+	AdvancePaymentAmount *float64 `xml:"advancePaymentAmount,omitempty" json:"advancePaymentAmount,omitempty"`
 
-	InvoiceAmountDue *InvoiceAmountDue `xml:"invoiceAmountDue,omitempty" json:"invoiceAmountDue,omitempty"`
+	InvoiceAmountDue *float64 `xml:"invoiceAmountDue,omitempty" json:"invoiceAmountDue,omitempty"`
 
-	InvoiceDocumentUrl *InvoiceDocumentUrl `xml:"invoiceDocumentUrl,omitempty" json:"invoiceDocumentUrl,omitempty"`
+	InvoiceDocumentUrl *string `xml:"invoiceDocumentUrl,omitempty" json:"invoiceDocumentUrl,omitempty"`
 
 	InvoiceLineItemsArray struct {
 		InvoiceLineItem []*InvoiceLineItem `xml:"InvoiceLineItem,omitempty" json:"InvoiceLineItem,omitempty"`
 	} `xml:"InvoiceLineItemsArray,omitempty" json:"InvoiceLineItemsArray,omitempty"`
 
 	SalesOrderNumbersArray struct {
-		SalesOrderNumber []*SalesOrderNumber `xml:"salesOrderNumber,omitempty" json:"salesOrderNumber,omitempty"`
+		SalesOrderNumber []*string `xml:"salesOrderNumber,omitempty" json:"salesOrderNumber,omitempty"`
 	} `xml:"SalesOrderNumbersArray,omitempty" json:"SalesOrderNumbersArray,omitempty"`
 
 	TaxArray struct {
 		Tax []*Tax `xml:"tax,omitempty" json:"tax,omitempty"`
 	} `xml:"TaxArray,omitempty" json:"TaxArray,omitempty"`
 
-	InvoicePaymentUrl *InvoicePaymentUrl `xml:"invoicePaymentUrl,omitempty" json:"invoicePaymentUrl,omitempty"`
+	InvoicePaymentUrl *string `xml:"invoicePaymentUrl,omitempty" json:"invoicePaymentUrl,omitempty"`
 }
 
 type GetInvoicesResponse struct {
@@ -1852,15 +1853,15 @@ type GetInvoicesResponse struct {
 type GetVoidedInvoicesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ GetVoidedInvoicesRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	QueryType *QueryType `xml:"queryType,omitempty" json:"queryType,omitempty"`
+	QueryType *string `xml:"queryType,omitempty" json:"queryType,omitempty"`
 
-	ReferenceNumber *ReferenceNumber `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
+	ReferenceNumber *int `xml:"referenceNumber,omitempty" json:"referenceNumber,omitempty"`
 
 	RequestedDate *RequestedDate `xml:"requestedDate,omitempty" json:"requestedDate,omitempty"`
 
@@ -1870,7 +1871,7 @@ type GetVoidedInvoicesRequest struct {
 type VoidedInvoice struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Invoice/1.0.0/ VoidedInvoice"`
 
-	InvoiceNumber *InvoiceNumber `xml:"invoiceNumber,omitempty" json:"invoiceNumber,omitempty"`
+	InvoiceNumber *string `xml:"invoiceNumber,omitempty" json:"invoiceNumber,omitempty"`
 
 	VoidDate *VoidDate `xml:"voidDate,omitempty" json:"voidDate,omitempty"`
 }
