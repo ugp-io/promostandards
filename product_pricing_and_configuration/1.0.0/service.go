@@ -1711,26 +1711,26 @@ type FobArray struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ FobArray"`
 
 	Fob []struct {
-		FobId *FobId `xml:"fobId,omitempty" json:"fobId,omitempty"`
+		FobId *string `xml:"fobId,omitempty" json:"fobId,omitempty"`
 
-		FobPostalCode *FobPostalCode `xml:"fobPostalCode,omitempty" json:"fobPostalCode,omitempty"`
+		FobPostalCode *string `xml:"fobPostalCode,omitempty" json:"fobPostalCode,omitempty"`
 	} `xml:"Fob,omitempty" json:"Fob,omitempty"`
 }
 
 type GetAvailableLocationsRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ GetAvailableLocationsRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 }
 
 type AvailableLocation struct {
@@ -1738,7 +1738,7 @@ type AvailableLocation struct {
 
 	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
 
-	LocationName *LocationName `xml:"locationName,omitempty" json:"locationName,omitempty"`
+	LocationName *string `xml:"locationName,omitempty" json:"locationName,omitempty"`
 }
 
 type GetAvailableLocationsResponse struct {
@@ -1754,29 +1754,29 @@ type GetAvailableLocationsResponse struct {
 type GetDecorationColorsRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ GetDecorationColorsRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
 	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
 	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 }
 
 type Color struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ Color"`
 
-	ColorId *ColorId `xml:"colorId,omitempty" json:"colorId,omitempty"`
+	ColorId *string `xml:"colorId,omitempty" json:"colorId,omitempty"`
 
-	ColorName *ColorName `xml:"colorName,omitempty" json:"colorName,omitempty"`
+	ColorName *string `xml:"colorName,omitempty" json:"colorName,omitempty"`
 }
 
 type DecorationMethod struct {
@@ -1784,7 +1784,7 @@ type DecorationMethod struct {
 
 	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 
-	DecorationName *DecorationName `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
+	DecorationName *string `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
 }
 
 type GetDecorationColorsResponse struct {
@@ -1795,7 +1795,7 @@ type GetDecorationColorsResponse struct {
 			Color []*Color `xml:"Color,omitempty" json:"Color,omitempty"`
 		} `xml:"ColorArray,omitempty" json:"ColorArray,omitempty"`
 
-		ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+		ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
 		LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
 
@@ -1820,23 +1820,23 @@ type GetDecorationColorsResponse struct {
 type GetFobPointsRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ GetFobPointsRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 }
 
 type FobPoint struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ FobPoint"`
 
-	FobId *FobId `xml:"fobId,omitempty" json:"fobId,omitempty"`
+	FobId *string `xml:"fobId,omitempty" json:"fobId,omitempty"`
 
 	//
 	// The fob city
@@ -1850,7 +1850,7 @@ type FobPoint struct {
 
 	FobState string `xml:"fobState,omitempty" json:"fobState,omitempty"`
 
-	FobPostalCode *FobPostalCode `xml:"fobPostalCode,omitempty" json:"fobPostalCode,omitempty"`
+	FobPostalCode *string `xml:"fobPostalCode,omitempty" json:"fobPostalCode,omitempty"`
 
 	//
 	// The fob country
@@ -1876,7 +1876,7 @@ type CurrencySupported struct {
 type Product struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ Product"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 }
 
 type GetFobPointsResponse struct {
@@ -1892,17 +1892,17 @@ type GetFobPointsResponse struct {
 type GetAvailableChargesRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ GetAvailableChargesRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"password,omitempty" json:"password,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 }
 
 type AvailableCharge struct {
@@ -1910,11 +1910,11 @@ type AvailableCharge struct {
 
 	ChargeId *ChargeId `xml:"chargeId,omitempty" json:"chargeId,omitempty"`
 
-	ChargeName *ChargeName `xml:"chargeName,omitempty" json:"chargeName,omitempty"`
+	ChargeName *string `xml:"chargeName,omitempty" json:"chargeName,omitempty"`
 
-	ChargeDescription *ChargeDescription `xml:"chargeDescription,omitempty" json:"chargeDescription,omitempty"`
+	ChargeDescription *string `xml:"chargeDescription,omitempty" json:"chargeDescription,omitempty"`
 
-	ChargeType *ChargeType `xml:"chargeType,omitempty" json:"chargeType,omitempty"`
+	ChargeType *string `xml:"chargeType,omitempty" json:"chargeType,omitempty"`
 }
 
 type GetAvailableChargesResponse struct {
@@ -1930,35 +1930,35 @@ type GetAvailableChargesResponse struct {
 type GetConfigurationAndPricingRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ GetConfigurationAndPricingRequest"`
 
-	WsVersion *WsVersion `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *Id `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *Password `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
-	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
+	Currency *Currency `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
 
-	FobId *FobId `xml:"fobId,omitempty" json:"fobId,omitempty"`
+	FobId *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ fobId,omitempty" json:"fobId,omitempty"`
 
-	PriceType *PriceType `xml:"priceType,omitempty" json:"priceType,omitempty"`
+	PriceType *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ priceType,omitempty" json:"priceType,omitempty"`
 
-	LocalizationCountry *LocalizationCountry `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *LocalizationLanguage `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
-	ConfigurationType *ConfigurationType `xml:"configurationType,omitempty" json:"configurationType,omitempty"`
+	ConfigurationType *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ configurationType,omitempty" json:"configurationType,omitempty"`
 }
 
 type Part struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ Part"`
 
-	PartId *PartId `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
-	PartDescription *PartDescription `xml:"partDescription,omitempty" json:"partDescription,omitempty"`
+	PartDescription *string `xml:"partDescription,omitempty" json:"partDescription,omitempty"`
 
 	PartPriceArray struct {
 		PartPrice []*PartPrice `xml:"PartPrice,omitempty" json:"PartPrice,omitempty"`
@@ -1968,11 +1968,11 @@ type Part struct {
 
 	NextPartGroup *NextPartGroup `xml:"nextPartGroup,omitempty" json:"nextPartGroup,omitempty"`
 
-	PartGroupRequired *PartGroupRequired `xml:"partGroupRequired,omitempty" json:"partGroupRequired,omitempty"`
+	PartGroupRequired *string `xml:"partGroupRequired,omitempty" json:"partGroupRequired,omitempty"`
 
-	PartGroupDescription *PartGroupDescription `xml:"partGroupDescription,omitempty" json:"partGroupDescription,omitempty"`
+	PartGroupDescription *string `xml:"partGroupDescription,omitempty" json:"partGroupDescription,omitempty"`
 
-	Ratio *Ratio `xml:"ratio,omitempty" json:"ratio,omitempty"`
+	Ratio *string `xml:"ratio,omitempty" json:"ratio,omitempty"`
 
 	DefaultPart *DefaultPart `xml:"defaultPart,omitempty" json:"defaultPart,omitempty"`
 
@@ -2013,15 +2013,15 @@ type Location struct {
 
 	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
 
-	LocationName *LocationName `xml:"locationName,omitempty" json:"locationName,omitempty"`
+	LocationName *string `xml:"locationName,omitempty" json:"locationName,omitempty"`
 
 	DecorationArray struct {
 		Decoration []*Decoration `xml:"Decoration,omitempty" json:"Decoration,omitempty"`
 	} `xml:"DecorationArray,omitempty" json:"DecorationArray,omitempty"`
 
-	DecorationsIncluded *DecorationsIncluded `xml:"decorationsIncluded,omitempty" json:"decorationsIncluded,omitempty"`
+	DecorationsIncluded *string `xml:"decorationsIncluded,omitempty" json:"decorationsIncluded,omitempty"`
 
-	DefaultLocation *DefaultLocation `xml:"defaultLocation,omitempty" json:"defaultLocation,omitempty"`
+	DefaultLocation *string `xml:"defaultLocation,omitempty" json:"defaultLocation,omitempty"`
 
 	MaxDecoration *MaxDecoration `xml:"maxDecoration,omitempty" json:"maxDecoration,omitempty"`
 
@@ -2035,17 +2035,17 @@ type Decoration struct {
 
 	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 
-	DecorationName *DecorationName `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
+	DecorationName *string `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
 
-	DecorationGeometry *DecorationGeometry `xml:"decorationGeometry,omitempty" json:"decorationGeometry,omitempty"`
+	DecorationGeometry *string `xml:"decorationGeometry,omitempty" json:"decorationGeometry,omitempty"`
 
-	DecorationHeight *DecorationHeight `xml:"decorationHeight,omitempty" json:"decorationHeight,omitempty"`
+	DecorationHeight *string `xml:"decorationHeight,omitempty" json:"decorationHeight,omitempty"`
 
-	DecorationWidth *DecorationWidth `xml:"decorationWidth,omitempty" json:"decorationWidth,omitempty"`
+	DecorationWidth *string `xml:"decorationWidth,omitempty" json:"decorationWidth,omitempty"`
 
-	DecorationDiameter *DecorationDiameter `xml:"decorationDiameter,omitempty" json:"decorationDiameter,omitempty"`
+	DecorationDiameter *string `xml:"decorationDiameter,omitempty" json:"decorationDiameter,omitempty"`
 
-	DecorationUom *DecorationUom `xml:"decorationUom,omitempty" json:"decorationUom,omitempty"`
+	DecorationUom *string `xml:"decorationUom,omitempty" json:"decorationUom,omitempty"`
 
 	//
 	// Buyer is allowed to substitute a decoration location without changing the price
@@ -2069,7 +2069,7 @@ type Decoration struct {
 	// The number of included decoration units.
 	DecorationUnitsIncluded int32 `xml:"decorationUnitsIncluded,omitempty" json:"decorationUnitsIncluded,omitempty"`
 
-	DecorationUnitsIncludedUom *DecorationUnitsIncludedUom `xml:"decorationUnitsIncludedUom,omitempty" json:"decorationUnitsIncludedUom,omitempty"`
+	DecorationUnitsIncludedUom *string `xml:"decorationUnitsIncludedUom,omitempty" json:"decorationUnitsIncludedUom,omitempty"`
 
 	DecorationUnitsMax *DecorationUnitsMax `xml:"decorationUnitsMax,omitempty" json:"decorationUnitsMax,omitempty"`
 
@@ -2090,11 +2090,11 @@ type Charge struct {
 
 	ChargeId *ChargeId `xml:"chargeId,omitempty" json:"chargeId,omitempty"`
 
-	ChargeName *ChargeName `xml:"chargeName,omitempty" json:"chargeName,omitempty"`
+	ChargeName *string `xml:"chargeName,omitempty" json:"chargeName,omitempty"`
 
-	ChargeDescription *ChargeDescription `xml:"chargeDescription,omitempty" json:"chargeDescription,omitempty"`
+	ChargeDescription *string `xml:"chargeDescription,omitempty" json:"chargeDescription,omitempty"`
 
-	ChargeType *ChargeType `xml:"chargeType,omitempty" json:"chargeType,omitempty"`
+	ChargeType *string `xml:"chargeType,omitempty" json:"chargeType,omitempty"`
 
 	ChargePriceArray struct {
 		ChargePrice []*ChargePrice `xml:"ChargePrice,omitempty" json:"ChargePrice,omitempty"`
@@ -2168,13 +2168,13 @@ type Configuration struct {
 		Location []*Location `xml:"Location,omitempty" json:"Location,omitempty"`
 	} `xml:"LocationArray,omitempty" json:"LocationArray,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
 	Currency *Currency `xml:"currency,omitempty" json:"currency,omitempty"`
 
 	FobArray *FobArray `xml:"FobArray,omitempty" json:"FobArray,omitempty"`
 
-	PriceType *PriceType `xml:"priceType,omitempty" json:"priceType,omitempty"`
+	PriceType *string `xml:"priceType,omitempty" json:"priceType,omitempty"`
 }
 
 type GetConfigurationAndPricingResponse struct {
