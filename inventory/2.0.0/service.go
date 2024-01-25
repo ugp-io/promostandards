@@ -811,9 +811,9 @@ type GetInventoryLevelsRequest struct {
 type GetInventoryLevelsResponse struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/ GetInventoryLevelsResponse" bson:"-"`
 
-	// Inventory *Inventory `xml:"Inventory,omitempty" json:"Inventory,omitempty" bson:"inventory,omitempty"`
+	Inventory *Inventory `xml:"Inventory,omitempty" json:"Inventory,omitempty" bson:"inventory,omitempty"`
 
-	// ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty" bson:"service_message_array,omitempty"`
+	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty" bson:"service_message_array,omitempty"`
 }
 
 type InventoryService interface {
