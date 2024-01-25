@@ -6,8 +6,33 @@ import (
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
+	"github.com/araddon/dateparse"
 	"time"
 )
+
+type CustomTime struct {
+	time.Time
+}
+
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := dateparse.ParseAny(v)
+		if err != nil {
+			return err
+		}
+		*c = CustomTime{parse}
+	}
+
+	return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
+}
 
 // against "unused imports"
 var _ time.Time
@@ -2002,10 +2027,10 @@ type PartPrice struct {
 	PriceUom *QuantityUomType `xml:"priceUom,omitempty" json:"priceUom,omitempty"`
 
 	// The price effective date
-	PriceEffectiveDate time.Time `xml:"priceEffectiveDate,omitempty" json:"priceEffectiveDate,omitempty"`
+	PriceEffectiveDate CustomTime `xml:"priceEffectiveDate,omitempty" json:"priceEffectiveDate,omitempty"`
 
 	// The price expiry date
-	PriceExpiryDate time.Time `xml:"priceExpiryDate,omitempty" json:"priceExpiryDate,omitempty"`
+	PriceExpiryDate CustomTime `xml:"priceExpiryDate,omitempty" json:"priceExpiryDate,omitempty"`
 }
 
 type Location struct {
@@ -2151,10 +2176,10 @@ type ChargePrice struct {
 	RepeatDiscountCode string `xml:"repeatDiscountCode,omitempty" json:"repeatDiscountCode,omitempty"`
 
 	// The price effective date
-	PriceEffectiveDate time.Time `xml:"priceEffectiveDate,omitempty" json:"priceEffectiveDate,omitempty"`
+	PriceEffectiveDate CustomTime `xml:"priceEffectiveDate,omitempty" json:"priceEffectiveDate,omitempty"`
 
 	// The price expiry date
-	PriceExpiryDate time.Time `xml:"priceExpiryDate,omitempty" json:"priceExpiryDate,omitempty"`
+	PriceExpiryDate CustomTime `xml:"priceExpiryDate,omitempty" json:"priceExpiryDate,omitempty"`
 }
 
 type Configuration struct {
