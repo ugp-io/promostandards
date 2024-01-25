@@ -177,7 +177,7 @@ type MediaContentArray struct {
 }
 
 type GetMediaContentResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentResponse"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentDetailsResponse"  bson:"-"`
 
 	MediaContentArray *MediaContentArray `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
 
