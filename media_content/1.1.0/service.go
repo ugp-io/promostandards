@@ -45,7 +45,7 @@ const (
 type CultureName string
 
 type ErrorMessage struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ errorMessage"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ errorMessage"  bson:"-"`
 
 	//
 	// Response for any error requiring notification to requestor
@@ -64,29 +64,29 @@ type ChangeTimeStamp time.Time
 type MediaType MediaTypeType
 
 type GetMediaContentRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ GetMediaContentRequest"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentRequest"  bson:"-"`
 
-	WsVersion *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	CultureName *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ cultureName,omitempty" json:"cultureName,omitempty"`
+	CultureName *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ cultureName,omitempty" json:"cultureName,omitempty"`
 
-	MediaType *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ mediaType,omitempty" json:"mediaType,omitempty"`
+	MediaType *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ mediaType,omitempty" json:"mediaType,omitempty"`
 
-	ProductId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
-	PartId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
 	// The part ID associated to the product ID.
 	//
-	ClassType int32 `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/SharedObjects/ classType,omitempty" json:"classType,omitempty"`
+	ClassType int32 `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/SharedObjects/ classType,omitempty" json:"classType,omitempty"`
 }
 
 type MediaContent struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ MediaContent"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ MediaContent"  bson:"-"`
 
 	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
@@ -140,7 +140,7 @@ type MediaContent struct {
 }
 
 type ClassType struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ ClassType"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ ClassType"  bson:"-"`
 
 	// The classification of the media
 	ClassTypeId int32 `xml:"classTypeId,omitempty" json:"classTypeId,omitempty" bson:"class_type_id,omitempty"`
@@ -151,7 +151,7 @@ type ClassType struct {
 }
 
 type Decoration struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ Decoration"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ Decoration"  bson:"-"`
 
 	// The decoration id associated with the media
 	DecorationId int32 `xml:"decorationId,omitempty" json:"decorationId,omitempty" bson:"decoration_id,omitempty"`
@@ -162,7 +162,7 @@ type Decoration struct {
 }
 
 type Location struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ Location"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ Location"`
 
 	// The location id associated with the media
 	LocationId int32 `xml:"locationId,omitempty" json:"locationId,omitempty" bson:"location_id,omitempty"`
@@ -177,7 +177,7 @@ type MediaContentArray struct {
 }
 
 type GetMediaContentResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ GetMediaContentDetailsResponse"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentDetailsResponse"  bson:"-"`
 
 	MediaContentArray *MediaContentArray `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
 
@@ -185,7 +185,7 @@ type GetMediaContentResponse struct {
 }
 
 type GetMediaDateModifiedRequest struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ GetMediaDateModifiedRequest" bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaDateModifiedRequest" bson:"-"`
 
 	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
 
@@ -199,7 +199,7 @@ type GetMediaDateModifiedRequest struct {
 }
 
 type MediaDateModified struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ MediaDateModified" bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ MediaDateModified" bson:"-"`
 
 	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
@@ -207,7 +207,7 @@ type MediaDateModified struct {
 }
 
 type GetMediaDateModifiedResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ GetMediaDateModifiedResponse" bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaDateModifiedResponse" bson:"-"`
 
 	MediaDateModifiedArray struct {
 		MediaDateModified []*MediaDateModified `xml:"MediaDateModified,omitempty" json:"MediaDateModified,omitempty"`
