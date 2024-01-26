@@ -6,8 +6,34 @@ import (
 	"context"
 	"encoding/xml"
 	"github.com/hooklift/gowsdl/soap"
+	"github.com/araddon/dateparse"
 	"time"
 )
+
+
+type CustomTime struct {
+	time.Time
+}
+
+func (c *CustomTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	if v != "" {
+		parse, err := dateparse.ParseAny(v)
+		if err != nil {
+			return err
+		}
+		*c = CustomTime{parse}
+	}
+
+	return nil
+}
+
+func (c *CustomTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	const shortForm = "2006-01-02T15:04:05"
+	s := c.Format(shortForm)
+	return e.EncodeElement(s, start)
+}
 
 // against "unused imports"
 var _ time.Time
@@ -203,7 +229,7 @@ type ProductVariationInventory struct {
 	//
 	// Datetime inventory is available
 	//
-	ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
+	ValidTimestamp CustomTime `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
 }
 
 type Reply struct {
@@ -295,7 +321,7 @@ type Reply struct {
 			//
 			// Datetime inventory is available
 			//
-			ValidTimestamp time.Time `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
+			ValidTimestamp CustomTime `xml:"validTimestamp,omitempty" json:"validTimestamp,omitempty" bson:"valid_timestamp,omitempty"`
 		} `xml:"ProductCompanionInventory,omitempty" json:"ProductCompanionInventory,omitempty" bson:"product_companion_inventory,omitempty"`
 	} `xml:"ProductCompanionInventoryArray,omitempty" json:"ProductCompanionInventoryArray,omitempty" bson:"product_companion_inventory_array,omitempty"`
 
