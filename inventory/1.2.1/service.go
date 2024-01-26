@@ -276,7 +276,7 @@ type Reply struct {
 			// The quantity available
 			//
 
-			QuantityAvailable string `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
+			QuantityAvailable int `xml:"quantityAvailable,omitempty" json:"quantityAvailable,omitempty" bson:"quantity_available,omitempty"`
 
 			//
 			// Description of the color of the part
