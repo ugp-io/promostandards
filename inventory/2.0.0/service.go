@@ -753,9 +753,9 @@ type InventoryLocationQuantity struct {
 type InventoryLocation struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/Inventory/2.0.0/SharedObjects/ InventoryLocation" bson:"-"`
 
-	InventoryLocationId *InventoryLocationId `xml:"inventoryLocationId,omitempty" json:"inventoryLocationId,omitempty" bson:"inventory_location_id,omitempty"`
+	InventoryLocationId *string `xml:"inventoryLocationId,omitempty" json:"inventoryLocationId,omitempty" bson:"inventory_location_id,omitempty"`
 
-	InventoryLocationName *InventoryLocationName `xml:"inventoryLocationName,omitempty" json:"inventoryLocationName,omitempty" bson:"inventory_location_name,omitempty"`
+	InventoryLocationName *string `xml:"inventoryLocationName,omitempty" json:"inventoryLocationName,omitempty" bson:"inventory_location_name,omitempty"`
 
 	// The postal code
 
@@ -763,7 +763,7 @@ type InventoryLocation struct {
 
 	// The country
 
-	Country *ISO3166CountyCode `xml:"country,omitempty" json:"country,omitempty" bson:"country,omitempty"`
+	Country *string `xml:"country,omitempty" json:"country,omitempty" bson:"country,omitempty"`
 
 	InventoryLocationQuantity *InventoryLocationQuantity `xml:"inventoryLocationQuantity,omitempty" json:"inventoryLocationQuantity,omitempty" bson:"inventory_location_quantity,omitempty"`
 
