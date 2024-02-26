@@ -1965,7 +1965,7 @@ type GetConfigurationAndPricingRequest struct {
 
 	PartId *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
-	Currency *Currency `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
+	Currency *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
 
 	FobId *string `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/ fobId,omitempty" json:"fobId,omitempty"`
 
