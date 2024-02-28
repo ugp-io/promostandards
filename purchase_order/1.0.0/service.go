@@ -1916,7 +1916,7 @@ type ArtworkFile struct {
 
 	// The purpose of the artwork file; values are enumerated
 
-	ArtworkType *ArtworkType `xml:"artworkType,omitempty" json:"artworkType,omitempty"`
+	ArtworkType *string `xml:"artworkType,omitempty" json:"artworkType,omitempty"`
 
 	// The exact path/location to the artwork
 
@@ -1928,7 +1928,7 @@ type ArtworkFile struct {
 
 	// The mechanism that will be used to transport the artwork; values are enumerated
 
-	TransportMechanism *TransportMechanismType `xml:"transportMechanism,omitempty" json:"transportMechanism,omitempty"`
+	TransportMechanism *string `xml:"transportMechanism,omitempty" json:"transportMechanism,omitempty"`
 }
 
 type Artwork struct {
@@ -1942,11 +1942,11 @@ type Artwork struct {
 	RefArtworkId string `xml:"refArtworkId,omitempty" json:"refArtworkId,omitempty"`
 
 	// The total stitch count for the specified embroidery art
-	TotalStitchCount int32 `xml:"totalStitchCount,omitempty" json:"totalStitchCount,omitempty"`
+	TotalStitchCount int `xml:"totalStitchCount,omitempty" json:"totalStitchCount,omitempty"`
 
 	ArtworkFileArray *ArtworkFileArray `xml:"ArtworkFileArray,omitempty" json:"ArtworkFileArray,omitempty"`
 
-	Description *Description `xml:"description,omitempty" json:"description,omitempty"`
+	Description *string `xml:"description,omitempty" json:"description,omitempty"`
 
 	Dimensions *Dimensions `xml:"Dimensions,omitempty" json:"Dimensions,omitempty"`
 
@@ -2069,11 +2069,11 @@ type DecorationId int32
 type Decoration struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Decoration"`
 
-	DecorationName *DecorationName `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
+	DecorationName *string `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
 
 	Artwork *Artwork `xml:"Artwork,omitempty" json:"Artwork,omitempty"`
 
-	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
+	DecorationId *int `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 }
 
 type DigitalProofAddress struct {
@@ -2164,7 +2164,7 @@ type LocationLinkId int32
 type Location struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Location"`
 
-	LocationName *LocationName `xml:"locationName,omitempty" json:"locationName,omitempty"`
+	LocationName *string `xml:"locationName,omitempty" json:"locationName,omitempty"`
 
 	DecorationArray struct {
 		Decoration []*Decoration `xml:"Decoration,omitempty" json:"Decoration,omitempty"`
@@ -2173,7 +2173,7 @@ type Location struct {
 	// An identifier to be used within the Part Array to link configured locations to a part. Due to different colors and sizes, identical locations may need to be decorated differently.
 	LocationLinkId int32 `xml:"locationLinkId,omitempty" json:"locationLinkId,omitempty"`
 
-	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
+	LocationId *int `xml:"locationId,omitempty" json:"locationId,omitempty"`
 }
 
 type ShipmentLinkArray struct {
