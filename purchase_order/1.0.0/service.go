@@ -2168,14 +2168,16 @@ type Location struct {
 
 	LocationName *string `xml:"locationName,omitempty" json:"locationName,omitempty"`
 
-	DecorationArray struct {
-		Decoration []*Decoration `xml:"Decoration,omitempty" json:"Decoration,omitempty"`
-	} `xml:"DecorationArray,omitempty" json:"DecorationArray,omitempty"`
+	DecorationArray *DecorationArray `xml:"DecorationArray,omitempty" json:"DecorationArray,omitempty"`
 
 	// An identifier to be used within the Part Array to link configured locations to a part. Due to different colors and sizes, identical locations may need to be decorated differently.
 	LocationLinkId int32 `xml:"locationLinkId,omitempty" json:"locationLinkId,omitempty"`
 
 	LocationId *int `xml:"locationId,omitempty" json:"locationId,omitempty"`
+}
+
+type DecorationArray struct {
+	Decoration []*Decoration `xml:"Decoration,omitempty" json:"Decoration,omitempty"`
 }
 
 type ShipmentLinkArray struct {
