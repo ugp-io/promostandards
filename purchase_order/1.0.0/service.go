@@ -1984,9 +1984,7 @@ type Configuration struct {
 		Charge []*Charge `xml:"Charge,omitempty" json:"Charge,omitempty"`
 	} `xml:"ChargeArray,omitempty" json:"ChargeArray,omitempty"`
 
-	LocationArray struct {
-		Location []*Location `xml:"Location,omitempty" json:"Location,omitempty"`
-	} `xml:"LocationArray,omitempty" json:"LocationArray,omitempty"`
+	LocationArray *LocationArray `xml:"LocationArray,omitempty" json:"LocationArray,omitempty"`
 
 	// The type of the prior order reference; values are enumerated
 
@@ -1998,6 +1996,10 @@ type Configuration struct {
 
 	// Indicates that this line item is for a preproduction proof
 	PreProductionProof bool `xml:"preProductionProof" json:"preProductionProof"`
+}
+
+type LocationArray struct {
+	Location []*Location `xml:"Location,omitempty" json:"Location,omitempty"`
 }
 
 type ContactDetails struct {
