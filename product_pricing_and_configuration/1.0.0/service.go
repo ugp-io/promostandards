@@ -2036,7 +2036,7 @@ type PartPrice struct {
 type Location struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ Location"`
 
-	LocationId *LocationId `xml:"locationId,omitempty" json:"locationId,omitempty"`
+	LocationId *int `xml:"locationId,omitempty" json:"locationId,omitempty"`
 
 	LocationName *string `xml:"locationName,omitempty" json:"locationName,omitempty"`
 
@@ -2048,17 +2048,17 @@ type Location struct {
 
 	DefaultLocation *string `xml:"defaultLocation,omitempty" json:"defaultLocation,omitempty"`
 
-	MaxDecoration *MaxDecoration `xml:"maxDecoration,omitempty" json:"maxDecoration,omitempty"`
+	MaxDecoration *int `xml:"maxDecoration,omitempty" json:"maxDecoration,omitempty"`
 
-	MinDecoration *MinDecoration `xml:"minDecoration,omitempty" json:"minDecoration,omitempty"`
+	MinDecoration *int `xml:"minDecoration,omitempty" json:"minDecoration,omitempty"`
 
-	LocationRank *LocationRank `xml:"locationRank,omitempty" json:"locationRank,omitempty"`
+	LocationRank *int `xml:"locationRank,omitempty" json:"locationRank,omitempty"`
 }
 
 type Decoration struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/ Decoration"`
 
-	DecorationId *DecorationId `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
+	DecorationId *int `xml:"decorationId,omitempty" json:"decorationId,omitempty"`
 
 	DecorationName *string `xml:"decorationName,omitempty" json:"decorationName,omitempty"`
 
@@ -2096,7 +2096,7 @@ type Decoration struct {
 
 	DecorationUnitsIncludedUom *string `xml:"decorationUnitsIncludedUom,omitempty" json:"decorationUnitsIncludedUom,omitempty"`
 
-	DecorationUnitsMax *DecorationUnitsMax `xml:"decorationUnitsMax,omitempty" json:"decorationUnitsMax,omitempty"`
+	DecorationUnitsMax *int `xml:"decorationUnitsMax,omitempty" json:"decorationUnitsMax,omitempty"`
 
 	//
 	// The default decoration
