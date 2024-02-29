@@ -2150,7 +2150,7 @@ type Layers struct {
 
 	// The color system to use
 
-	ColorSystem *ColorSystemType `xml:"colorSystem,omitempty" json:"colorSystem,omitempty"`
+	ColorSystem *string `xml:"colorSystem,omitempty" json:"colorSystem,omitempty"`
 
 	LayerOrStopArray *LayerOrStopArray `xml:"LayerOrStopArray,omitempty" json:"LayerOrStopArray,omitempty"`
 }
