@@ -2152,9 +2152,11 @@ type Layers struct {
 
 	ColorSystem *ColorSystemType `xml:"colorSystem,omitempty" json:"colorSystem,omitempty"`
 
-	LayerOrStopArray struct {
-		LayerOrStop []*LayerOrStop `xml:"LayerOrStop,omitempty" json:"LayerOrStop,omitempty"`
-	} `xml:"LayerOrStopArray,omitempty" json:"LayerOrStopArray,omitempty"`
+	LayerOrStopArray *LayerOrStopArray `xml:"LayerOrStopArray,omitempty" json:"LayerOrStopArray,omitempty"`
+}
+
+type LayerOrStopArray struct {
+	LayerOrStop []*LayerOrStop `xml:"LayerOrStop,omitempty" json:"LayerOrStop,omitempty"`
 }
 
 type LineItemGroupingId int32
