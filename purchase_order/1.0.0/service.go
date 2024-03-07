@@ -2083,22 +2083,24 @@ type DigitalProofAddress struct {
 
 	// The type of address of the digital proof. Values are enumerated: Email, Webservice
 
-	Type *DigitalProofAddressTypeType `xml:"type,omitempty" json:"type,omitempty"`
+	Type *string `xml:"type,omitempty" json:"type,omitempty"`
 
-	Email string `xml:"email,omitempty" json:"email,omitempty"`
+	Email *string `xml:"email,omitempty" json:"email,omitempty"`
 
-	LineItemGroupingId *LineItemGroupingId `xml:"lineItemGroupingId,omitempty" json:"lineItemGroupingId,omitempty"`
+	LineItemGroupingId *int `xml:"lineItemGroupingId,omitempty" json:"lineItemGroupingId,omitempty"`
 }
 
 type DigitalProof struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ DigitalProof"`
 
-	DigitalProofAddressArray struct {
-		DigitalProofAddress []*DigitalProofAddress `xml:"DigitalProofAddress,omitempty" json:"DigitalProofAddress,omitempty"`
-	} `xml:"DigitalProofAddressArray,omitempty" json:"DigitalProofAddressArray,omitempty"`
+	DigitalProofAddressArray *DigitalProofAddressArray `xml:"DigitalProofAddressArray,omitempty" json:"DigitalProofAddressArray,omitempty"`
 
 	// A Boolean value set to TRUE indicates a proof is required for this purchase order; the value is FALSE otherwise.
-	Required bool `xml:"required" json:"required"`
+	Required *bool `xml:"required" json:"required"`
+}
+
+type DigitalProofAddressArray struct {
+	DigitalProofAddress []*DigitalProofAddress `xml:"DigitalProofAddress,omitempty" json:"DigitalProofAddress,omitempty"`
 }
 
 type Dimensions struct {
@@ -2483,7 +2485,7 @@ type PO struct {
 
 	Currency string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ currency,omitempty" json:"currency,omitempty"`
 
-	// DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
+	DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
 
 	// OrderContactArray struct {
 	// 	Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
