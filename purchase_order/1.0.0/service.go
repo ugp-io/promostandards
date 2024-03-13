@@ -2436,7 +2436,7 @@ type LineItem struct {
 
 	EndCustomerSalesOrder string `xml:"endCustomerSalesOrder,omitempty" json:"endCustomerSalesOrder,omitempty"`
 
-	ProductId *ProductId `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
 
 	// The distributor's product id
 
