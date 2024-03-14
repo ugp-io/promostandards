@@ -184,6 +184,14 @@ type GetMediaContentResponse struct {
 	ErrorMessage *ErrorMessage `xml:"errorMessage,omitempty" json:"errorMessage,omitempty"`
 }
 
+type GetMediaContentDetailsResponse struct {
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentDetailsResponse"  bson:"-"`
+
+	MediaContentArray *MediaContentArray `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
+
+	ErrorMessage *ErrorMessage `xml:"errorMessage,omitempty" json:"errorMessage,omitempty"`
+}
+
 type GetMediaDateModifiedRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaDateModifiedRequest" bson:"-"`
 
@@ -221,6 +229,10 @@ type MediaContentService interface {
 
 	GetMediaContentContext(ctx context.Context, request *GetMediaContentRequest) (*GetMediaContentResponse, error)
 
+	GetMediaContentDetails(request *GetMediaContentRequest) (*GetMediaContentDetailsResponse, error)
+
+	GetMediaContentDetailsContext(ctx context.Context, request *GetMediaContentRequest) (*GetMediaContentDetailsResponse, error)
+
 	GetMediaDateModified(request *GetMediaDateModifiedRequest) (*GetMediaDateModifiedResponse, error)
 
 	GetMediaDateModifiedContext(ctx context.Context, request *GetMediaDateModifiedRequest) (*GetMediaDateModifiedResponse, error)
@@ -248,6 +260,23 @@ func (service *mediaContentService) GetMediaContentContext(ctx context.Context, 
 
 func (service *mediaContentService) GetMediaContent(request *GetMediaContentRequest) (*GetMediaContentResponse, error) {
 	return service.GetMediaContentContext(
+		context.Background(),
+		request,
+	)
+}
+
+func (service *mediaContentService) GetMediaContentDetailsContext(ctx context.Context, request *GetMediaContentRequest) (*GetMediaContentDetailsResponse, error) {
+	response := new(GetMediaContentDetailsResponse)
+	err := service.client.CallContext(ctx, "getMediaContent", request, response)
+	if err != nil {
+		return nil, err
+	}
+
+	return response, nil
+}
+
+func (service *mediaContentService) GetMediaContentDetails(request *GetMediaContentRequest) (*GetMediaContentDetailsResponse, error) {
+	return service.GetMediaContentDetailsContext(
 		context.Background(),
 		request,
 	)
