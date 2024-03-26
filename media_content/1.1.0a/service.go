@@ -86,7 +86,7 @@ type GetMediaContentRequest struct {
 }
 
 type MediaContent struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ MediaContent"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ MediaContent"  bson:"-"`
 
 	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty" bson:"product_id,omitempty"`
 
@@ -140,7 +140,7 @@ type MediaContent struct {
 }
 
 type ClassType struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ ClassType"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ ClassType"  bson:"-"`
 
 	// The classification of the media
 	ClassTypeId int32 `xml:"classTypeId,omitempty" json:"classTypeId,omitempty" bson:"class_type_id,omitempty"`
@@ -177,7 +177,7 @@ type MediaContentArray struct {
 }
 
 type GetMediaContentResponse struct {
-	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.0.0/ GetMediaContentResponse"  bson:"-"`
+	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/MediaService/1.1.0/ GetMediaContentResponse"  bson:"-"`
 
 	MediaContentArray *MediaContentArray `xml:"MediaContentArray,omitempty" json:"MediaContentArray,omitempty" bson:"media_content_array,omitempty"`
 
