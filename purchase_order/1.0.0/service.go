@@ -2165,7 +2165,7 @@ type LineItemGroupingId int32
 
 type LocationId int32
 
-type LocationLinkId int32
+// type LocationLinkId int32
 
 type Location struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Location"`
@@ -2175,7 +2175,7 @@ type Location struct {
 	DecorationArray *DecorationArray `xml:"DecorationArray,omitempty" json:"DecorationArray,omitempty"`
 
 	// An identifier to be used within the Part Array to link configured locations to a part. Due to different colors and sizes, identical locations may need to be decorated differently.
-	LocationLinkId int32 `xml:"locationLinkId,omitempty" json:"locationLinkId,omitempty"`
+	LocationLinkId *int `xml:"locationLinkId,omitempty" json:"locationLinkId,omitempty"`
 
 	LocationId *int `xml:"locationId,omitempty" json:"locationId,omitempty"`
 }
@@ -2206,7 +2206,7 @@ type Part struct {
 
 	Quantity *Quantity `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ Quantity,omitempty" json:"Quantity,omitempty"`
 
-	LocationLinkId []*LocationLinkId `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ locationLinkId,omitempty" json:"locationLinkId,omitempty"`
+	LocationLinkId *[]int `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ locationLinkId,omitempty" json:"locationLinkId,omitempty"`
 
 	UnitPrice *UnitPrice `xml:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 
