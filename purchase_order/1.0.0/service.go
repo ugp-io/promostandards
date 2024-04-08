@@ -2457,6 +2457,10 @@ type LineItemArray struct {
 	LineItem []*LineItem `xml:"LineItem,omitempty" json:"LineItem,omitempty"`
 }
 
+type OrderContactArray struct {
+	Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
+}
+
 type PO struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/ PO"`
 
@@ -2487,9 +2491,7 @@ type PO struct {
 
 	DigitalProof *DigitalProof `xml:"DigitalProof,omitempty" json:"DigitalProof,omitempty"`
 
-	// OrderContactArray struct {
-	// 	Contact []*Contact `xml:"Contact,omitempty" json:"Contact,omitempty"`
-	// } `xml:"OrderContactArray,omitempty" json:"OrderContactArray,omitempty"`
+	OrderContactArray *OrderContactArray `xml:"OrderContactArray,omitempty" json:"OrderContactArray,omitempty"`
 
 	ShipmentArray ShipmentArray `xml:"ShipmentArray,omitempty" json:"ShipmentArray,omitempty"`
 
