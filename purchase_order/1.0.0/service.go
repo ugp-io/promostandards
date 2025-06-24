@@ -2531,7 +2531,7 @@ type SendPOResponse struct {
 	// The transaction id of the PO submittal
 	TransactionId string `xml:"transactionId,omitempty" json:"transactionId,omitempty"`
 
-	ServiceMessageArray *ServiceMessageArray `xml:"ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty"`
+	ServiceMessageArray *ServiceMessageArray `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ServiceMessageArray,omitempty" json:"ServiceMessageArray,omitempty"`
 }
 
 type POService interface {
