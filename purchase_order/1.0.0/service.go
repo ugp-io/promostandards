@@ -2237,22 +2237,22 @@ type Quantity struct {
 type ServiceMessageArray struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ServiceMessageArray"`
 
-	ServiceMessage []*ServiceMessage `xml:"ServiceMessage,omitempty" json:"ServiceMessage,omitempty"`
+	ServiceMessage []*ServiceMessage `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ServiceMessage,omitempty" json:"ServiceMessage,omitempty"`
 }
 
 type ServiceMessage struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ ServiceMessage"`
 
 	// Response for any error requiring notification to requestor
-	Code int32 `xml:"code,omitempty" json:"code,omitempty"`
+	Code int32 `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ code,omitempty" json:"code,omitempty"`
 
 	// Response for any error requiring notification to requestor
 
-	Description string `xml:"description,omitempty" json:"description,omitempty"`
+	Description string `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ description,omitempty" json:"description,omitempty"`
 
 	// The severity of the error. Values are enumerated: {Error, Information, Warning}
 
-	Severity *SeverityType `xml:"severity,omitempty" json:"severity,omitempty"`
+	Severity *SeverityType `xml:"http://www.promostandards.org/WSDL/PO/1.0.0/SharedObjects/ severity,omitempty" json:"severity,omitempty"`
 }
 
 type ShipmentId int32
