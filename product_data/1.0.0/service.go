@@ -1150,7 +1150,7 @@ type GetProductSellableRequest struct {
 
 	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
-	IsSellable *IsSellable `xml:"isSellable,omitempty" json:"isSellable,omitempty"`
+	IsSellable *bool `xml:"isSellable,omitempty" json:"isSellable,omitempty"`
 }
 
 type GetProductSellableResponse struct {

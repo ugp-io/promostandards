@@ -2279,9 +2279,9 @@ type GetProductSellableRequest struct {
 
 	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
 
-	LineName *LineName `xml:"lineName,omitempty" json:"lineName,omitempty"`
+	LineName *string `xml:"lineName,omitempty" json:"lineName,omitempty"`
 
-	IsSellable *IsSellable `xml:"isSellable,omitempty" json:"isSellable,omitempty"`
+	IsSellable *bool `xml:"isSellable,omitempty" json:"isSellable,omitempty"`
 }
 
 type GetProductSellableResponse struct {
