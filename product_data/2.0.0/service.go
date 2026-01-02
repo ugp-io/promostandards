@@ -2265,23 +2265,23 @@ type GetProductCloseOutResponse struct {
 type GetProductSellableRequest struct {
 	XMLName xml.Name `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/ GetProductSellableRequest" bson:"-"`
 
-	WsVersion *string `xml:"wsVersion,omitempty" json:"wsVersion,omitempty"`
+	WsVersion *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ wsVersion,omitempty" json:"wsVersion,omitempty"`
 
-	Id *string `xml:"id,omitempty" json:"id,omitempty"`
+	Id *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ id,omitempty" json:"id,omitempty"`
 
-	Password *string `xml:"password,omitempty" json:"password,omitempty"`
+	Password *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ password,omitempty" json:"password,omitempty"`
 
-	LocalizationCountry *string `xml:"localizationCountry,omitempty" json:"localizationCountry,omitempty"`
+	LocalizationCountry *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ localizationCountry,omitempty" json:"localizationCountry,omitempty"`
 
-	LocalizationLanguage *string `xml:"localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
+	LocalizationLanguage *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ localizationLanguage,omitempty" json:"localizationLanguage,omitempty"`
 
-	ProductId *string `xml:"productId,omitempty" json:"productId,omitempty"`
+	ProductId *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ productId,omitempty" json:"productId,omitempty"`
 
-	PartId *string `xml:"partId,omitempty" json:"partId,omitempty"`
+	PartId *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ partId,omitempty" json:"partId,omitempty"`
 
-	LineName *string `xml:"lineName,omitempty" json:"lineName,omitempty"`
+	LineName *string `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ lineName,omitempty" json:"lineName,omitempty"`
 
-	IsSellable *bool `xml:"isSellable,omitempty" json:"isSellable,omitempty"`
+	IsSellable *bool `xml:"http://www.promostandards.org/WSDL/ProductDataService/2.0.0/SharedObjects/ isSellable,omitempty" json:"isSellable,omitempty"`
 }
 
 type GetProductSellableResponse struct {
